@@ -18,6 +18,8 @@
   	<div class="body-cotent" >
 
       <div class="header">
+
+         <!-- <button  class="" id="button_menu">  -->
         
         <div class="dropdown-block">          
           <button onclick="showMenu()" class="dropbtn" id="button_menu">            
@@ -95,10 +97,14 @@
 
             
             <p><b>Дополнительно</b></p>
-            <button class="menu_button" id="cachClear" onclick="clearCaches()">Очистить кэш</button><br>
+            <!-- <button class="menu_button" id="cachClear" onclick="clearCaches()">Очистить кэш</button><br> -->
+
+            <button class="menu_button" id="history_remover" onclick="clearHistory()">Удалить историю</button><br>
 
             
                <button class="menu_button" id="help_button" onclick="showHelpPage()">Справка</button>
+            <!-- <button class="menu_button" id="help_button" onclick="dd()">Справка</button> -->
+            
             <hr class="line">
 
             
@@ -119,14 +125,22 @@
       </div>  
         
     	<div id="levels" class="levels-block">
-        <button id="level_5b" value="5 стандарт" class="button" onclick="chooseTest(test_5b, 'test_5b', this.value)">5 стандарт</button>  
+        <!-- <button id="level_5b" value="5 стандарт" class="button" onclick="chooseTest(test_5b, 'test_5b', this.value)">5 стандарт</button>  
         <button id="level_6b" value="6 стандарт" class="button" onclick="chooseTest(test_6b, 'test_6b', this.value)">6 стандарт</button>      
         <button id="level_6e" value="6 эксперт" class="button" onclick="chooseTest(test_6e, 'test_6e', this.value)">6 эксперт</button>  
         <button id="ot" value="Охрана труда 1" class="button" onclick="chooseTest(test_ot, 'test_ot', this.value)">Охрана труда 1</button>
         <button id="ot-maxim" value="Охрана труда 2" class="button" onclick="chooseTest(test_maxim, 'test_maxim', this.value)">Охрана труда 2</button>
         <button id="temp"  value="Микротесты 5 р" class="button" onclick="chooseTest(micro_5, 'micro_5', this.value)">Микротесты 5 р</button>
-        <button id="temp" value="Микротесты 6 р" class="button" onclick="chooseTest(micro_6, 'micro_6', this.value)">Микротесты 6 р</button>
-        <button id="temp" value="7" class="button" onclick="chooseTest(test, 'test', this.value)">Test</button>
+        <button id="temp" value="Микротесты 6 р" class="button" onclick="chooseTest(micro_6, 'micro_6', this.value)">Микротесты 6 р</button> -->
+
+        <button id="level_5b"  class="test_button">5 стандарт</button>  
+        <button id="level_6b"  class="test_button">6 стандарт</button>      
+        <button id="level_6e" class="test_button">6 эксперт</button>  
+        <button id="ot" class="test_button">Охрана труда 1</button>
+        <button id="ot_maxim" class="test_button">Охрана труда 2</button>
+        <button id="micro_5"  class="test_button">Микротесты 5 р</button>
+        <button id="micro_6" class="test_button">Микротесты 6 р</button>        
+        <button id="temp_test"  class="test_button" >Test</button>
         <!-- <br><br><br><br><br><br>
         <button id="help" class="button" onclick="document.location='assets/help.html'">Помощь</button> -->
       </div>

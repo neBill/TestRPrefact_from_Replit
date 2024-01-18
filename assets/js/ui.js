@@ -2,21 +2,17 @@
 
 let rightOptionIndex;
 let isLearnMode;
-let testMark;
+let testMark = '';
 let historyIndex;
 let isHistorySave = true;
 let isShuffle;
 let isAnswerDone = false;
 
 
-var fff = [test]
-
-//const testList = [test_5b, test_6b, test_6e, micro_5, micro_6, test_ot, test_maxim, test];
-
-
 class CurrentTest {
-   constructor(test) {
+   constructor(test, id) {
      this.index = test
+     this.id = id
    }
 }
 
@@ -44,7 +40,7 @@ const wrongAnswers = new Errors();
 const currentIndex = new Counter(0);
 const currentTest = new CurrentTest();
 
-//вспомогательная функция
+
 function putToCache(elem, cache) {
   if (cache.indexOf(elem) !== -1) {
     return;
@@ -53,7 +49,7 @@ function putToCache(elem, cache) {
   cache.splice(i, 0, elem);
 }
 
-//функция, возвращающая свеженький, компаратор
+
 function madness() {
   let cache = [];
   return function(a, b) {
@@ -63,7 +59,7 @@ function madness() {
   };
 }
 
-//функция перемешивания
+
 function shuffle(arr) {  
   
     let compare = madness();
@@ -98,7 +94,21 @@ function showErrors(id) {
 
 function updateQuestionBlock() {
  
-  let currentQuestionBlock = currentTest.test[currentIndex.index];     
+  let currentQuestionBlock = currentTest.test[currentIndex.index]; 
+
+  let optionsCount = currentQuestionBlock[1].length;  
+
+  if(optionsCount < 4) {
+
+    while(optionsCount < 4) {
+
+      currentQuestionBlock[1].push(["Нет варианта ответа (*)", 0]);
+      optionsCount++;
+
+    }
+
+  }  
+
   
   shuffle(currentQuestionBlock[1]);  
   
@@ -115,6 +125,7 @@ function updateQuestionBlock() {
   document.getElementById('counter').innerHTML = `Вопрос: ${currentIndex.index + 1}/${currentTest.test.length}`;
   
 }
+
 
 function setTrainingMode(optionIndex) {
   
@@ -292,6 +303,9 @@ button_home.addEventListener("click", function(event) {
   if(isShuffle) {
    
     localStorage.removeItem(testMark);
+    testMark = '';
+
+    
   }
   
   currentIndex.index = 0;
@@ -312,7 +326,15 @@ function saveTestHistory(optionIndex) {
 
   //alert(optionIndex + "   " + rightOptionIndex)
 
-  const savedItem = localStorage.getItem(testMark);
+  let testSavedName = testMark;
+
+  if(isLearnMode) {
+
+      testSavedName += '*';
+    
+  }
+
+  const savedItem = localStorage.getItem(testSavedName);
 
   let wrongOption = ''
 
@@ -327,7 +349,7 @@ function saveTestHistory(optionIndex) {
 
    // alert("nulldata")
     
-    localStorage.setItem(testMark, `${currentIndex.index}$${wrongOption}`);
+    localStorage.setItem(testSavedName, `${currentIndex.index}$${wrongOption}`);
     
   } else {
 
@@ -361,7 +383,7 @@ function saveTestHistory(optionIndex) {
       }
 
      // saveItems(testMark, newData);
-      localStorage.setItem(testMark, newData);
+      localStorage.setItem(testSavedName, newData);
 
     }
 
@@ -509,28 +531,51 @@ function getErrorsArray() {
 
 
 
-function chooseTest(test, testName, testTitle) {
+//choose test
+document.addEventListener("click", function(event) {    
 
-  alert(fff[0][0])
-  
-  currentTest.test = test;
- 
-  testMark = testName;//////////////////////???????///////
-  
-  currentIndex.index = getTestHistoryIndex(testName);  
+  if(event.target.className !== "test_button") return;
 
+  currentTest.id = event.target.id;            
+
+  currentTest.test = chooseTest(currentTest.id);
+  
   if (isShuffle) {   
-    
-    shuffle(test);
-    //localStorage.removeItem(test);
-    //localStorage.removeItem(test);
+  
+    shuffle(currentTest.test);   
+  // testMark = 'shuffled_test';
+
+  }
+  else{
+
+    currentIndex.index = getTestHistoryIndex(currentTest.id);
     
   }
   
-  showChosenTest(testTitle);  
+    
+  showChosenTest(event.target.textContent, currentTest.test.length); 
 
   updateQuestionBlock();
+
+})
+
+function chooseTest(testId) { 
+
+  const testList = {
+    level_5b : test_5b,     
+    level_6b : test_6b,
+    level_6e : test_6e,
+    ot : test_ot,
+    ot_maxim : test_maxim,
+    micro_5 : micro_5,
+    micro_6 : micro_6,
+    temp_test : test, 
+  }
+  return testList[testId];
 }
+
+
+
 
 function showResultsPage() {
   document.getElementById('button_home').style.display = "block";
@@ -542,10 +587,10 @@ function showResultsPage() {
   document.getElementById('button_home').innerText = "На главную";
 }
 
-function showChosenTest(testTitle) {
+function showChosenTest(testName, testLength) {
 
   document.getElementById('test').style.display = "block";
-  document.getElementById('counter').innerHTML = "Вопрос: 1/" + currentTest.test.length;
+  document.getElementById('counter').innerHTML = "Вопрос: 1/" + testLength;
   document.getElementById('counter').style.display = "block";
   document.getElementById('questions_counter').style.display = 'block';
   document.getElementById('levels').style.display = "none";
@@ -554,6 +599,6 @@ function showChosenTest(testTitle) {
   document.getElementById('button_home').innerText = "Завершить";
   document.getElementById('button_home').style.display = "block";
   document.getElementById('button_menu').style.display = "none";
-  document.getElementById('test-title').innerHTML = testTitle;
+  document.getElementById('test-title').innerHTML = testName;
   
 }

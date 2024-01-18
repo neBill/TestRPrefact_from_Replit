@@ -39,15 +39,30 @@ function clearCaches(){
   });
 }
 
+function clearHistory() {
+
+  localStorage.clear(); 
+  
+}
+
 
 window.addEventListener("load", ()=>{
 
    //loadSettings();
-  // document.body.className = 'light-theme';
+   //document.body.className = 'light-theme';
 
   loadSettings();
+  // testList.push(test);
+  
+
+
+  
 
 });
+
+
+
+
 
 
 
