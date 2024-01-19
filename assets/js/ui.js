@@ -2,10 +2,9 @@
 
 let rightOptionIndex;
 let isLearnMode;
-let testMark = '';
 let historyIndex;
 let isHistorySave = true;
-let isShuffle;
+let isShuffle = false;
 let isAnswerDone = false;
 
 
@@ -178,7 +177,7 @@ function showTestResult(isTestFinished) {
   let testState, questionQuantity, state = '';
  // let state = ''; 
 
-  if (localStorage.getItem(testMark)) {
+  if (localStorage.getItem(currentTest.id)) {
    
     getErrorsArray();
 
@@ -238,12 +237,11 @@ document.addEventListener("click", function(event) {
   const buttonId = event.target.id;
   
   if (buttonClass == "error_button") {
-    //const buttonId = event.target.id;
+    
 
     const links = document.querySelectorAll(".error_button");
 
-   // alert(buttonId)
-    //showErrors(wrongAnswers[buttonId]);
+   
     showErrors(buttonId);
 
     links.forEach(link => {
@@ -253,14 +251,7 @@ document.addEventListener("click", function(event) {
     document.getElementById(buttonId).style.background = "var(--error-btn-color)";
   }
 
-  // if(button_class == "count_button") {   
-  //   questions_count = event.target.value; 
-  //   const count_buttons = document.querySelectorAll(".count_button");         
-  //   count_buttons.forEach(count_button => {    
-  //    count_button.setAttribute("style", "background: var(--main-bg-color)");      
-  //   });        
-  //   document.getElementById(event.target.id).style.border = "var(--right-answer-border)";
-  // }
+  
 
   if (buttonClass == "font-size-change") {
     
@@ -281,10 +272,7 @@ button_home.addEventListener("click", function(event) {
     showResultsPage();
     showTestResult(false);
     
-    // if(isShuffle === true) {
-    //   localStorage.removeItem(testMark);
-    // }
-
+    
       
   }
   if (buttonText == "На главную") { 
@@ -295,15 +283,11 @@ button_home.addEventListener("click", function(event) {
 
   }
 
-  // if(isShuffle === true) {
-  //  // alert(isShuffle)
-  //   localStorage.removeItem(testMark);
-  // }
 
   if(isShuffle) {
    
-    localStorage.removeItem(testMark);
-    testMark = '';
+    localStorage.removeItem(currentTest.id);
+    currentTest.id = '';
 
     
   }
@@ -322,17 +306,9 @@ button_next.addEventListener("click", function() {
 
 
 
-function saveTestHistory(optionIndex) { 
+function saveTestHistory(optionIndex) {   
 
-  //alert(optionIndex + "   " + rightOptionIndex)
-
-  let testSavedName = testMark;
-
-  if(isLearnMode) {
-
-      testSavedName += '*';
-    
-  }
+  let testSavedName = currentTest.id;
 
   const savedItem = localStorage.getItem(testSavedName);
 
@@ -341,13 +317,13 @@ function saveTestHistory(optionIndex) {
   if (optionIndex != rightOptionIndex) {
 
     wrongOption = `[${currentIndex.index},${optionIndex}]`;
-    //alert(optionIndex + "   " + rightOptionIndex)
+    
   }
   
 
   if(savedItem == null){
 
-   // alert("nulldata")
+   
     
     localStorage.setItem(testSavedName, `${currentIndex.index}$${wrongOption}`);
     
@@ -358,7 +334,7 @@ function saveTestHistory(optionIndex) {
 
       let historyData = history[1];
 
-    //alert(history[0])
+    
 
     if (history[0] <= currentTest.test.length) {
 
@@ -370,7 +346,7 @@ function saveTestHistory(optionIndex) {
 
       }
 
-     // alert(wrongOption.length)
+     
       if (wrongOption.length == 0) {        
 
         
@@ -382,7 +358,7 @@ function saveTestHistory(optionIndex) {
        
       }
 
-     // saveItems(testMark, newData);
+     
       localStorage.setItem(testSavedName, newData);
 
     }
@@ -436,13 +412,15 @@ function check(optionIndex) {
 
 function finilizeTest(optionIndex) {
 
-  if(isHistorySave){
-    saveTestHistory(optionIndex)
-  }
+ // if(isHistorySave){
+    saveTestHistory(optionIndex);
+  //}
   showResultsPage();
   showTestResult(true);
 
   currentIndex.index = 0;
+
+ 
   
 }
 
@@ -487,32 +465,44 @@ function showTest() {
 
 
 
-function getTestHistoryIndex(testName) {   
+function getCurrentIndex(testId) {      
 
-  const savedHistory = localStorage.getItem(testName);  
+  let currentIndex = 0; 
 
-  if(savedHistory === null){   
-    return 0;      
-  }
-  else{    
+  if(testId in localStorage) {
 
-    const testHistoryIndex = Number(savedHistory.slice(0, savedHistory.indexOf("$"))) + 1;
+    const history = getTestHistory(testId);   
 
-    if (testHistoryIndex < currentTest.test.length) {
+    if (extractIndex(history) === currentTest.test.length) {
+ 
+      removeTestHistory(testId);
 
-      return testHistoryIndex; 
     }
-    if (testHistoryIndex === currentTest.test.length) {      
-      localStorage.removeItem(testName);
-      return 0;
-    }   
+    if(extractIndex(history) < currentTest.test.length ) {
+
+       currentIndex = extractIndex(history)
+    }
+
+
   }
+
+  return currentIndex;
    
 }
 
+
+function extractIndex(history) {
+
+  return Number(history.slice(0, history.indexOf("$"))) + 1;
+  
+}
+
+
+
+
 function getErrorsArray() {
   
-  let errors = localStorage.getItem(testMark).split("$");
+  let errors = localStorage.getItem(currentTest.id).split("$");
   
   if (errors[1].length == 0) return;
 
@@ -542,22 +532,46 @@ document.addEventListener("click", function(event) {
   
   if (isShuffle) {   
   
-    shuffle(currentTest.test);   
-  // testMark = 'shuffled_test';
+    shuffle(currentTest.test);  
+
+    currentTest.id += '$';
+
+  } 
+
+  if(isLearnMode) { 
+
+    currentTest.id += '*';
 
   }
-  else{
 
-    currentIndex.index = getTestHistoryIndex(currentTest.id);
-    
-  }
-  
+  currentIndex.index = getCurrentIndex(currentTest.id);
     
   showChosenTest(event.target.textContent, currentTest.test.length); 
 
   updateQuestionBlock();
 
 })
+
+
+function removeTestHistory(testId) {      
+
+  localStorage.removeItem(testId);
+
+}
+
+function getTestHistory(testId) {
+
+  return localStorage.getItem(testId)
+
+}
+
+function setTestHistory(testId) {
+
+  localStorage.setItem(testId)
+
+}
+
+
 
 function chooseTest(testId) { 
 
