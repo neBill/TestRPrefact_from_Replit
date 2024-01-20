@@ -1,33 +1,51 @@
 'use strict';
 
-function chageFontSize(buttonId){
+function chageFontSize(buttonId){  
 
-  const oldSize = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--btn-font-size"));
+  const defaultSize = 1.8;  
 
-  let newSize = 1.60;    
+  let currentSize;  
+
+  if(localStorage.getItem("size"))  {
+
+    currentSize = localStorage.getItem("size");    
+
+  }
+  else {
+
+    currentSize = defaultSize;
+  }   
+  
+
+
+  let newSize = defaultSize;  
   
   if(buttonId == "font-increase"){  
     
-    newSize = (parseFloat(oldSize) + 0.1).toFixed(2);       
+    newSize = (parseFloat(currentSize) + 0.1).toFixed(2);   
+       
   }
 
   if(buttonId == "font-decrease"){
      
-    newSize = (parseFloat(oldSize) - 0.1).toFixed(2);
-  }
+    newSize = (parseFloat(currentSize) - 0.1).toFixed(2);    
+  
+  }  
 
-   
- 
-  if(newSize <= 2.0 && newSize >= 1.4){
 
-    document.documentElement.style.setProperty("--btn-font-size", `${newSize}em`);
 
-    document.getElementById('fontsize').style.fontSize = `${newSize}em`;
-    
-    localStorage.setItem('size', newSize);
-  }
+  if(2.1 < newSize ||  newSize < 1.4) return;
+
+  document.getElementById('fontsize').style.fontSize = `${newSize}em`;
+
+  document.body.style.setProperty('--btn-font-size', `${newSize}em`);//set
+  
+  localStorage.setItem('size', newSize); 
   
 }
+
+
+
 
 function clearCaches(){  
   caches.open('s-app-v1').then(cache => {
@@ -46,13 +64,16 @@ function clearHistory() {
 }
 
 
+
+
 window.addEventListener("load", ()=>{
 
    //loadSettings();
-   //document.body.className = 'light-theme';
+   document.body.className = 'light-theme';
 
   loadSettings();
   // testList.push(test);
+  //document.body.className = 'light-theme';
   
 
 
@@ -188,10 +209,5 @@ function saveSettings(){
 //   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 // }
 
-// const testList = {
-//   z: test,
-//   e: "test",
-//   t: "1"    
-// }
 
 

@@ -10,7 +10,7 @@ body.light-theme {
   --text-color: #007373;
   --toogle-on-color: #0079f2;
   --font-weight:bold;
-  --btn-font-size: 1.7em;
+  --btn-font-size: 1.8em;
   --body-font-size: 62.5%;
   --border-radius: 6px;
   --nochanged-font-size: 1.8em; 
@@ -30,7 +30,7 @@ body.dark-theme {
   --body-fon: #202430;
   --text-color: #7d8fb3;
   --font-weight: normal;
-  --btn-font-size: 1.7em;
+  --btn-font-size: 1.8em;
   --body-font-size: 62.5%;
   --border-radius: 6px;
   --nochanged-font-size: 1.8em; 
