@@ -2,46 +2,30 @@
 
 function chageFontSize(buttonId){  
 
-  const defaultSize = 1.8;  
+  const bodyStyles = window.getComputedStyle(document.body);
 
-  let currentSize;  
-
-  if(localStorage.getItem("size"))  {
-
-    currentSize = localStorage.getItem("size");    
-
-  }
-  else {
-
-    currentSize = defaultSize;
-  }   
+  const oldSize = bodyStyles.getPropertyValue('--btn-font-size'); //get
   
-
-
-  let newSize = defaultSize;  
+  let newSize = 1.7;    
   
   if(buttonId == "font-increase"){  
     
-    newSize = (parseFloat(currentSize) + 0.1).toFixed(2);   
-       
+    newSize = (parseFloat(oldSize) + 0.1).toFixed(2);       
   }
 
   if(buttonId == "font-decrease"){
      
-    newSize = (parseFloat(currentSize) - 0.1).toFixed(2);    
-  
-  }  
+    newSize = (parseFloat(oldSize) - 0.1).toFixed(2);
+  }   
+ 
+  if(newSize <= 2.0 && newSize >= 1.4){
 
+    document.body.style.setProperty("--btn-font-size", `${newSize}em`);//set
 
-
-  if(2.1 < newSize ||  newSize < 1.4) return;
-
-  document.getElementById('fontsize').style.fontSize = `${newSize}em`;
-
-  document.body.style.setProperty('--btn-font-size', `${newSize}em`);//set
-  
-  localStorage.setItem('size', newSize); 
-  
+    document.getElementById('fontsize').style.fontSize = `${newSize}em`;
+    
+    localStorage.setItem('size', newSize);
+  }
 }
 
 
