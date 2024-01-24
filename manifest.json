@@ -1,6 +1,6 @@
 {
-    "name": "Тесты КиРП 2023",
-    "short_name": "ТестыЕКЭ",
+    "name": "Тесты ПУН",
+    "short_name": "Тесты ЕКЭ",
     "start_url": "index.html",
     "display": "standalone", 
     "background_color": "#025252",
