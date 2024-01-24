@@ -1,6 +1,6 @@
 {
-    "name": "Тесты ЕКЭ ПУН",
-    "short_name": "Тесты ПУН",
+    "name": "Тесты ЕКЭ Комп",
+    "short_name": "Тесты Комп",
     "start_url": "index.html",
     "display": "standalone", 
     "background_color": "#025252",
