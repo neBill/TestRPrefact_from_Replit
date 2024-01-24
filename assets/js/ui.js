@@ -526,9 +526,14 @@ document.addEventListener("click", function(event) {
 
   if(event.target.className !== "test_button") return;
 
-  currentTest.id = event.target.id;            
+  currentTest.id = event.target.id; 
+  
+  alert( currentTest.id)
 
   currentTest.test = chooseTest(currentTest.id);
+
+
+
   
   if (isShuffle) {   
   
