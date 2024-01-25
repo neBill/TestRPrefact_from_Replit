@@ -528,7 +528,7 @@ document.addEventListener("click", function(event) {
 
   currentTest.id = event.target.id; 
   
-  alert( currentTest.id)
+  //alert( currentTest.id)
 
   currentTest.test = chooseTest(currentTest.id);
 
