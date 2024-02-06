@@ -584,6 +584,7 @@ function chooseTest(testId) {
     micro_5 : micro_5,
     micro_6 : micro_6,
     temp_test : test, 
+     st  : test_st,
   }
   return testList[testId];
 }
