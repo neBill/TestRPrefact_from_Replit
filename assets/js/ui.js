@@ -545,6 +545,8 @@ document.addEventListener("click", function(event) {
   }
 
   currentIndex.index = getCurrentIndex(currentTest.id);
+
+  
     
   showChosenTest(event.target.textContent, currentTest.test.length); 
 
@@ -584,7 +586,9 @@ function chooseTest(testId) {
     micro_5 : micro_5,
     micro_6 : micro_6,
     temp_test : test, 
-     st  : test_st,
+    st_b : test_stb,
+    st_s : test_sts,
+    st_e : test_ste
   }
   return testList[testId];
 }

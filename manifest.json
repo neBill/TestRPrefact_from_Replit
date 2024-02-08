@@ -1,6 +1,6 @@
 {
-    "name": "Тесты ЕКЭ РП",
-    "short_name": "Тесты РП",
+    "name": "Тесты ЕКЭ РП СТ",
+    "short_name": "Тесты РПСт",
     "start_url": "index.html",
     "display": "standalone", 
     "background_color": "#025252",
