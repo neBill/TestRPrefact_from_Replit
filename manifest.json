@@ -1,6 +1,6 @@
 {
-    "name": "Тесты ЕКЭ Комп",
-    "short_name": "Тесты Комп",
+    "name": "Тесты ЕКЭ Комп CТ",
+    "short_name": "Тесты Комп СТ",
     "start_url": "index.html",
     "display": "standalone", 
     "background_color": "#025252",
