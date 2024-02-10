@@ -584,6 +584,7 @@ function chooseTest(testId) {
     comp_b : test_b,
     comp_s : test_s,
     comp_e : test_e,
+    ekons : test_ekons,
     // micro_5 : micro_5,
     // micro_6 : micro_6,
     // temp_test : test, 

@@ -10,7 +10,9 @@ const assets = [
   '/assets/js/otmaxim.js',
   '/assets/js/comp_b.js',
   '/assets/js/comp_s.js',
-  '/assets/js/comp_e.js',  
+  '/assets/js/comp_e.js',
+  '/assets/js/ekons.js',
+
   '/assets/images/logo-192x192.png',
   '/assets/images/logo-512x512.png',
   '/assets/images/maskable_icon.png', 
