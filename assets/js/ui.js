@@ -395,8 +395,10 @@ function check(optionIndex) {
   
   
 
-  //  LearnMode   
-  if (isLearnMode === true && optionIndex != rightOptionIndex) {     
+  //  LearnMode 
+  // if (isLearnMode === true && optionIndex != rightOptionIndex) { 
+  if (isLearnMode === true) { 
+     
     setTrainingMode(optionIndex);
     currentIndex.index++;
     return;
