@@ -576,14 +576,17 @@ function setTestHistory(testId) {
 function chooseTest(testId) { 
 
   const testList = {
-    level_5b : test_5b,     
-    level_6b : test_6b,
-    level_6e : test_6e,
+    b5 : test_5b,     
+    b6 : test_6b,
+    s5 : test_5s,
+    s6 : test_6s,     
+    e5 : test_5e,
+    e6 : test_6e,
     ot : test_ot,
     ot_maxim : test_maxim,
     micro_5 : micro_5,
     micro_6 : micro_6,
-    temp_test : test, 
+     
   }
   return testList[testId];
 }
