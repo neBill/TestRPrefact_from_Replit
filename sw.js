@@ -11,6 +11,7 @@ const assets = [
   '/assets/js/otmaxim.js',
   '/assets/js/micro5.js',
   '/assets/js/micro6.js',
+  '/assets/js/newBases.js',
   '/assets/images/logo-192x192.png',
   '/assets/images/logo-512x512.png',
   '/assets/images/maskable_icon.png', 
