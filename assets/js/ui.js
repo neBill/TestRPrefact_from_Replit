@@ -6,6 +6,7 @@ let historyIndex;
 let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
+let isNewBases = false;
 
 
 class CurrentTest {
@@ -571,22 +572,33 @@ function setTestHistory(testId) {
 
 }
 
+function chooseTest(testId) {   
 
-
-function chooseTest(testId) { 
-
-  const testList = {
-    level_5b : test_5b,     
-    level_6b : test_6b,
-    level_6e : test_6e,
-    ot : test_ot,
-    ot_maxim : test_maxim,
-    micro_5 : micro_5,
-    micro_6 : micro_6,
-    temp_test : test, 
+  if(isNewBases) {      
+    return newTest[testId];    
   }
-  return testList[testId];
+  else {  
+    return testList[testId];  
+  }
+  
 }
+
+// function chooseTest(testId) { 
+
+
+
+//   // const testList = {
+//   //   level_5b : test_5b,     
+//   //   level_6b : test_6b,
+//   //   level_6e : test_6e,
+//   //   ot : test_ot,
+//   //   ot_maxim : test_maxim,
+//   //   micro_5 : micro_5,
+//   //   micro_6 : micro_6,
+//   //   temp_test : test, 
+//   // }
+//   // return testList[testId];
+// }
 
 
 
