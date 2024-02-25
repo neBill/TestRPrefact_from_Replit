@@ -6,6 +6,7 @@ let historyIndex;
 let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
+let isNewBases = false;
 
 
 class CurrentTest {
@@ -60,10 +61,10 @@ function madness() {
 
 
 function shuffle(arr) {  
-  
+
     let compare = madness();
     return arr.sort(compare);
-  
+
 }
 
 function showErrors(id) {
@@ -71,11 +72,11 @@ function showErrors(id) {
   let indexes =  wrongAnswers.errors[id];
 
   document.getElementById('test').style.display = 'block';
-  
+
   const index = indexes[0];
-  
+
   const chosenIndex = indexes[1]; 
-  
+
   let answerButtonBorder;
   for (var i = 0; i < 4; ++i) {
     answerButtonBorder = 'none';
@@ -92,7 +93,7 @@ function showErrors(id) {
 }
 
 function updateQuestionBlock() {
- 
+
   let currentQuestionBlock = currentTest.test[currentIndex.index]; 
 
   let optionsCount = currentQuestionBlock[1].length;  
@@ -108,9 +109,9 @@ function updateQuestionBlock() {
 
   }  
 
-  
+
   shuffle(currentQuestionBlock[1]);  
-  
+
   for (var i = 0; i < 4; ++i) {
     if (currentQuestionBlock[1][i][1] == 1) {
       rightOptionIndex = i;
@@ -122,33 +123,33 @@ function updateQuestionBlock() {
   document.getElementById('question').innerHTML = currentQuestionBlock[0];
 
   document.getElementById('counter').innerHTML = `Вопрос: ${currentIndex.index + 1}/${currentTest.test.length}`;
-  
+
 }
 
 
 function setTrainingMode(optionIndex) {
-  
+
   document.getElementById('button_next').style.display = "inline-block";
 
   let borderColor = '';
-   
+
   if (currentTest.test[currentIndex.index][1][optionIndex][1] == 1) {
-   
+
     borderColor = "var(--right-answer-border)";
-    
+
   } else {
-   
+
     borderColor = "var(--wrong-answer-border)";
-    
+
     document.getElementById('option' + rightOptionIndex).style.border = "var(--right-answer-border)";
   }
 
     document.getElementById('option' + optionIndex).style.border = borderColor;  
-      
+
   for (let element of document.getElementById('test').children) {
     element.disabled = true;
   }
-    
+
 }
 
 
@@ -165,12 +166,12 @@ function calcRightAnswers(questionsQuantity, errorsQuantity ) {
 
 
 function showTestResult(isTestFinished) {
-  
+
   if(currentIndex.index === 0 || isAnswerDone === false) {
     showLevels();
     return;
   }
-  
+
   // let testState = '';
   // let state = ''; 
 
@@ -178,27 +179,27 @@ function showTestResult(isTestFinished) {
  // let state = ''; 
 
   if (localStorage.getItem(currentTest.id)) {
-   
+
     getErrorsArray();
 
     //alert(wrongAnswers)
   }
- 
+
 
   //let questionQuantity = '';
- 
-   
+
+
 
   if (isTestFinished === false) {
 
    // testState = `<br>Тест остановлен.<br>Пройдено вопросов: ${currentQuestionIndex} из ${currentTest.length}<br>`;
      state = 'остановлен';
      questionQuantity = currentIndex.index;
-     
+
   }
 
   else {
-   
+
     state = 'завершен';
     questionQuantity = currentIndex.index + 1;
   }
@@ -207,20 +208,20 @@ function showTestResult(isTestFinished) {
 
 
   const { rightAnswers, errorsPercent } = calcRightAnswers(questionQuantity, wrongAnswers.errors.length);
-  
+
 
   let success = '';
 
   if(state === 'завершен') {
       success = '<br>Тест успешно пройден!<br>';    
   }
-    
+
   const unsuccess = '<br>Ваши ошибки:<br>';
 
   let result = `${testState}Правильных ответов:  ${rightAnswers} из ${questionQuantity} (${errorsPercent}%)`;
 
   result += (errorsPercent < 100) ? unsuccess : success;
-  
+
   document.getElementById('result').innerHTML = result;
 
   for (var index = 0; index < wrongAnswers.errors.length; ++index) {
@@ -235,13 +236,13 @@ document.addEventListener("click", function(event) {
   const buttonClass = event.target.className;
 
   const buttonId = event.target.id;
-  
+
   if (buttonClass == "error_button") {
-    
+
 
     const links = document.querySelectorAll(".error_button");
 
-   
+
     showErrors(buttonId);
 
     links.forEach(link => {
@@ -251,10 +252,10 @@ document.addEventListener("click", function(event) {
     document.getElementById(buttonId).style.background = "var(--error-btn-color)";
   }
 
-  
+
 
   if (buttonClass == "font-size-change") {
-    
+
      chageFontSize(buttonId);
   }
 
@@ -271,27 +272,27 @@ button_home.addEventListener("click", function(event) {
 
     showResultsPage();
     showTestResult(false);
-    
-    
-      
+
+
+
   }
   if (buttonText == "На главную") { 
 
     isAnswerDone = false;
-    
+
     showLevels();
 
   }
 
 
   if(isShuffle) {
-   
+
     localStorage.removeItem(currentTest.id);
     currentTest.id = '';
 
-    
+
   }
-  
+
   currentIndex.index = 0;
 
 
@@ -317,24 +318,24 @@ function saveTestHistory(optionIndex) {
   if (optionIndex != rightOptionIndex) {
 
     wrongOption = `[${currentIndex.index},${optionIndex}]`;
-    
+
   }
-  
+
 
   if(savedItem == null){
 
-   
-    
+
+
     localStorage.setItem(testSavedName, `${currentIndex.index}$${wrongOption}`);
-    
+
   } else {
 
-        
+
       let history = savedItem.split("$");
 
       let historyData = history[1];
 
-    
+
 
     if (history[0] <= currentTest.test.length) {
 
@@ -346,25 +347,25 @@ function saveTestHistory(optionIndex) {
 
       }
 
-     
+
       if (wrongOption.length == 0) {        
 
-        
+
         newData = `${currentIndex.index}$${historyData}`;
 
       } else {
 
         newData = `${currentIndex.index}$${historyData}${wrongOption}`;
-       
+
       }
 
-     
+
       localStorage.setItem(testSavedName, newData);
 
     }
 
   }
- 
+
 
 }
 
@@ -372,19 +373,19 @@ function saveTestHistory(optionIndex) {
 function check(optionIndex) {  
 
   isAnswerDone = true; 
-  
+
   //alert(currentIndex.index)
- 
+
   if (currentIndex.index === currentTest.test.length - 1) {  
-   
+
     finilizeTest(optionIndex);    
-   
+
     return;
 
   }
   // //  LearnMode   
   // if (isLearnMode === true && optionIndex != rightOptionIndex) {     
-    
+
   //   setTrainingMode(optionIndex);
   //   return;
   // } 
@@ -392,11 +393,15 @@ function check(optionIndex) {
   if(isHistorySave){   
     saveTestHistory(optionIndex);
   }
-  
-  
 
-  //  LearnMode   
-  if (isLearnMode === true && optionIndex != rightOptionIndex) {     
+
+
+  //  LearnMode //////////////////////////
+  //при верном ответе автоматически преходит на следующий вопрос, в новой редакции переход осуществляется пользователем
+  //if (isLearnMode === true && optionIndex != rightOptionIndex) { 
+  ///////////////////////////////////////////////////////////////////////////
+ // if (isLearnMode === true) { 
+  if (isLearnMode === true && optionIndex != rightOptionIndex) { 
     setTrainingMode(optionIndex);
     currentIndex.index++;
     return;
@@ -404,7 +409,7 @@ function check(optionIndex) {
 
   currentIndex.index++;
 
-  
+
 
   updateQuestionBlock();
 
@@ -420,8 +425,8 @@ function finilizeTest(optionIndex) {
 
   currentIndex.index = 0;
 
- 
-  
+
+
 }
 
 
@@ -436,7 +441,7 @@ function showMainPage() {
   document.getElementById('test').style.display = "none";
   document.getElementById('nav_block').style.display = "none";
   document.getElementById('result').style.display = "none";
- 
+
 }
 
 
@@ -451,7 +456,9 @@ function showLevels() {
   document.getElementById('results').style.display = "none";
   document.getElementById('test').style.display = "none";
   document.getElementById('button_menu').style.display = "block";
-  
+  document.getElementById('header_block').style.display = "block";
+  document.getElementById('remove_history_block').style.display = "none";
+
       wrongAnswers.errors.length = 0;
 
   //currentQuestionIndex = 0;
@@ -474,7 +481,7 @@ function getCurrentIndex(testId) {
     const history = getTestHistory(testId);   
 
     if (extractIndex(history) === currentTest.test.length) {
- 
+
       removeTestHistory(testId);
 
     }
@@ -487,23 +494,23 @@ function getCurrentIndex(testId) {
   }
 
   return currentIndex;
-   
+
 }
 
 
 function extractIndex(history) {
 
   return Number(history.slice(0, history.indexOf("$"))) + 1;
-  
+
 }
 
 
 
 
 function getErrorsArray() {
-  
+
   let errors = localStorage.getItem(currentTest.id).split("$");
-  
+
   if (errors[1].length == 0) return;
 
   let errors_array = errors[1].split(';');
@@ -511,12 +518,12 @@ function getErrorsArray() {
   errors_array.forEach(error => {
 
     var array = JSON.parse(error);
-    
+
         wrongAnswers.addError(array)
 
   });
 
-  
+
 }
 
 
@@ -528,10 +535,17 @@ document.addEventListener("click", function(event) {
 
   currentTest.id = event.target.id;            
 
-  currentTest.test = chooseTest(currentTest.id);
+ // currentTest.test = chooseTest(currentTest.id);
+  //alert(getTestList()[currentTest.id][0])
+
+  //testList[testId][1]
+  let currentTestList = getTestList();
+
   
+  currentTest.test = currentTestList[currentTest.id][0]
+
   if (isShuffle) {   
-  
+
     shuffle(currentTest.test);  
 
     currentTest.id += '$';
@@ -545,7 +559,7 @@ document.addEventListener("click", function(event) {
   }
 
   currentIndex.index = getCurrentIndex(currentTest.id);
-    
+
   showChosenTest(event.target.textContent, currentTest.test.length); 
 
   updateQuestionBlock();
@@ -575,19 +589,17 @@ function setTestHistory(testId) {
 
 function chooseTest(testId) { 
 
-  const testList = {
-    level_5b : test_5b,     
-    level_6b : test_6b,
-    level_6e : test_6e,
-    ot : test_ot,
-    ot_maxim : test_maxim,
-    micro_5 : micro_5,
-    micro_6 : micro_6,
-    temp_test : test, 
-  }
-  return testList[testId];
-}
+  // const isNewBases = document.getElementById('new_bases_toggle').checked;
 
+  if(isNewBases) {      
+    return newTest[testId];    
+  }
+  else {  
+    return testList[testId];
+  }
+
+  
+}
 
 
 
@@ -599,6 +611,7 @@ function showResultsPage() {
   document.getElementById('result').style.display = "block";
   document.getElementById('counter').style.display = "none";
   document.getElementById('button_home').innerText = "На главную";
+  document.getElementById('remove_history_block').style.display = "none";
 }
 
 function showChosenTest(testName, testLength) {
@@ -614,5 +627,9 @@ function showChosenTest(testName, testLength) {
   document.getElementById('button_home').style.display = "block";
   document.getElementById('button_menu').style.display = "none";
   document.getElementById('test-title').innerHTML = testName;
+  document.getElementById('header_block').style.display = "none";
+  document.getElementById('remove_history_block').style.display = "block";
   
+  
+
 }
