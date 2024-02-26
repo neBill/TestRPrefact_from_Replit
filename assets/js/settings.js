@@ -224,7 +224,7 @@ function hideHelpPage() {
 function showHelpPage() {
 
   document.getElementById("help_block").style.display = "block"; 
-  hideMenu();
+  showHideMenu();
 
 }
 
