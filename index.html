@@ -108,7 +108,7 @@
               </div>
             </div><br><br>
             
-            <hr class="line"/>
+            <hr class="line">
             
             <p><b>История тестирования</b></p>
             
@@ -119,7 +119,7 @@
             <button class="menu_button" id="history_remover" onclick="clearAllHistory()">Удалить 
  всю историю</button><br>
 
-            <hr class="line"/>
+            <hr class="line">
 
             
             <p><b>Дополнительно</b></p>
@@ -195,7 +195,7 @@
       
       <div class="test-block" id="test" > 
         <button disabled class="question-button" id="question"></button>
-        <hr class="line"></hr>
+        <hr class="line">
         <button onclick="check(0)" class="option_button" id="option0"></button>    
         <button onclick="check(1)" class="option_button" id="option1"></button>    
         <button onclick="check(2)" class="option_button" id="option2"></button>    
@@ -214,10 +214,10 @@
       </div>
 
 
-      <div class="help_page" id="help_block">
+      <div class="help_page" id="help_block"><br>
 
-        <br><div >
-            <button class="footer_button" id="help_hide" onclick="hideHelpPage()">На главную</button><br><br>          
+        <div >
+            <button class="footer_button" id="help_hide_top" onclick="hideHelpPage()">На главную</button><br><br>          
         </div>
 
         <div class="help-text-format">  
@@ -236,8 +236,8 @@
             - вопросы по разрядам и профуровням - вопросы разработанные ИТР установки для ЕКЭ;<br>
             - вопросы Эконс из разных источников.<br><br>
             
-            Добавились тесты по профуровням из альтернативных источников. <br><br>
-            В настройках В разделе "Настройки тестирования" можно выбрать эти базы включив переключатель "Новые базы". При выключении данного переключателя произойдет возврат к базам по умолчанию.
+            Добавились тесты по профуровням из новых источников. <br><br>
+            В настройках в разделе "Настройки тестирования" можно выбрать эти базы включив переключатель "Новые базы". При выключении данного переключателя произойдет возврат к базам по умолчанию.
           
           
 
@@ -278,25 +278,18 @@
 
             <br><br><h3><a href="https://wa.me/79234090881?text=Привет! Есть+вопрос">Ссылка для связи</a></h3><br><br>
           
-         
-          
-
-          
-
-          
         </div> <br>
                
         <div >
-            <button padding-bottom="2%" class="footer_button" id="help_hide" onclick="hideHelpPage()">На главную</button><br> 
-         <br>
-          
+            <button padding-bottom="2%" class="footer_button" id="help_hide_bottom" onclick="hideHelpPage()">На главную</button><br><br>          
         </div>
-        <div >             
+<!--         <div >             
          <br><br>
-        </div>
+        </div> -->
        
         
       </div>
+<!--     </div> -->
     
     <script src="/assets/js/ui.js"></script>
     <script src="/assets/js/data.js"></script>
