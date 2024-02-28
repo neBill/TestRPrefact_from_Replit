@@ -32,13 +32,13 @@ function chageFontSize(buttonId){
 
 
 function clearCaches(){  
-  caches.open('s-app-v1').then(cache => {
-    cache.keys().then(keys => {
-      keys.forEach(request => {
-        cache.delete(request);
-      });
-    });
-  });
+  // caches.open('s-app-v1').then(cache => {
+  //   cache.keys().then(keys => {
+  //     keys.forEach(request => {
+  //       cache.delete(request);
+  //     });
+  //   });
+  // });
 }
 
 function clearAllHistory() {
@@ -55,25 +55,22 @@ function clearCurrentHistory() {
 
 
 
-window.addEventListener("load", ()=>{
-
-   //loadSettings();
-   document.body.className = 'light-theme';
-
-  loadSettings();
-  // testList.push(test);
-  //document.body.className = 'light-theme';
-
-  
-  
-  const testList = getTestList()
-  
-  //
-  createTestButtons(testList)
-
-
-
+window.addEventListener("load", ()=>{  
+  document.body.className = 'light-theme';  
+  loadSettings();  
+  const testList = getTestList(); 
+  createTestButtons(testList);
 });
+
+//лечение выхода из приложения при нажании кнопки назад в андроид
+window.addEventListener('load', function() {
+    window.history.pushState({}, '')
+});
+  
+  window.addEventListener('popstate', function() {
+    window.history.pushState({}, '')
+});
+
 
 function getTestList() {  
 
@@ -109,15 +106,12 @@ function getTestList() {
 
 function createTestButtons(testList){
 
-  
-
     const testButtons = document.getElementById('levels');
 
     for(let testId in testList){
 
       const testButton = document.createElement('button');
 
-     // alert(testId)
 
       testButton.id = testId;
 
