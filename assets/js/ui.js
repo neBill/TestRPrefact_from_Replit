@@ -576,8 +576,9 @@ function setTestHistory(testId) {
 function chooseTest(testId) { 
 
   const testList = {
+    econs : econs,     
     b5 : test_5b,     
-    b6 : test_6b,
+    b6 : test_6b,     
     s5 : test_5s,
     s6 : test_6s,     
     e5 : test_5e,
