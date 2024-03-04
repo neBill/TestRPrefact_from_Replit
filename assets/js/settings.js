@@ -81,7 +81,9 @@ function getTestList() {
     b6 : [b6, "База 6р"],
     s6 : [s6, "Стандарт 6р"],
     e6 : [e6, "Эксперт 6р"],
-    econs : [econs, "Эконс"]
+    econs : [econs, "Эконс"],
+    econs_added: [econs_added, "Эконс доп."],
+    
 
   }    
   const oldTests = {
