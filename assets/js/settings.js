@@ -6,23 +6,23 @@ function chageFontSize(buttonId){
 
   const oldSize = bodyStyles.getPropertyValue('--btn-font-size'); //get
 
-  let newSize = 1.7;    
+  let newSize = 20;    
 
   if(buttonId == "font-increase"){  
 
-    newSize = (parseFloat(oldSize) + 0.1).toFixed(2);       
+    newSize = (parseFloat(oldSize) + 1).toFixed(2);       
   }
 
   if(buttonId == "font-decrease"){
 
-    newSize = (parseFloat(oldSize) - 0.1).toFixed(2);
+    newSize = (parseFloat(oldSize) - 1).toFixed(2);
   }   
 
-  if(newSize <= 2.0 && newSize >= 1.4){
+  if(newSize <= 23 && newSize >= 17){
 
-    document.body.style.setProperty("--btn-font-size", `${newSize}em`);//set
+    document.body.style.setProperty("--btn-font-size", `${newSize}px`);//set
 
-    document.getElementById('fontsize').style.fontSize = `${newSize}em`;
+    document.getElementById('fontsize').style.fontSize = `${newSize}`;
 
     localStorage.setItem('size', newSize);
   }
