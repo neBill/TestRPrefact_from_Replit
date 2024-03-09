@@ -139,6 +139,7 @@ p:active{
   padding-right: 1%;
   font-size: var(--body-font-size); 
   user-select: none;
+  max-height:9000000px;	 
 
 } 
 
