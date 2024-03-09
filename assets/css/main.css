@@ -62,7 +62,8 @@ body.dark-theme {
 .option_button{
 
   text-align: left;  
-  padding: 0.80em;
+  padding: 13px;
+  display: flex;
  
   
 }
