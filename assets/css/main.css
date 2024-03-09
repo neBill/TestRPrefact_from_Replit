@@ -10,10 +10,10 @@ body.light-theme {
   --text-color: #007373;
   --toogle-on-color: #0079f2;
   --font-weight:bold;
-  --btn-font-size: 18px;
+  --btn-font-size: 20px;
   --body-font-size: 62.5%;
   --border-radius: 6px;
-  --nochanged-font-size: 18px; 
+  --nochanged-font-size: 20px; 
   --font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
   
 }
@@ -30,10 +30,10 @@ body.dark-theme {
   --body-fon: #202430;
   --text-color: #7d8fb3;
   --font-weight: normal;
-  --btn-font-size: 18px;
+  --btn-font-size: 20px;
   --body-font-size: 62.5%;
   --border-radius: 6px;
-  --nochanged-font-size: 18px; 
+  --nochanged-font-size: 20px; 
   --font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -63,7 +63,7 @@ body.dark-theme {
 
   text-align: left;  
   padding: 13px;
-  display: flex;
+/*   display: flex; */
  
   
 }
