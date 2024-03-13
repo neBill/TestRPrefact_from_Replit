@@ -203,14 +203,23 @@ p{
 
 
 .footer_button{ 
-  text-align: center;    
+/*   text-align: center;    
   font-size: 1.5em;
   border-radius: var(--border-radius); 
   color: var(--main-fg-color);
   background-color: var(--main-bg-color);
   padding: 10px;
   border: 0;
+  cursor: pointer;  */
+  text-align: center;    
+  font-size: 1.8em;
+  border-radius: var(--border-radius); 
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
+  padding: 10px;
+  border: 0;
   cursor: pointer; 
+  display: inline-block;
 }
 
 .header{  
@@ -220,9 +229,14 @@ p{
 }
 
 .footer{    
-  padding: 6% 1% 1% 1%;   
-  display: none;
+/*   padding: 6% 1% 1% 1%;   
+  display: none; */
   /*background-color: red;*/
+  padding: 1% 1% 1% 1%;   
+  display: none;
+  /* background-color: red; */
+  margin: 8% auto;
+  height: 40px;
 }
 
 /*#answers, #test, #errors_block, .results-block, .levels-block { */
