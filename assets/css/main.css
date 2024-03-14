@@ -2,11 +2,13 @@
 body.light-theme {
   --main-bg-color: #007373;
   --main-fg-color: #FFF;
-  --right-answer-border: 2px solid #05fa3a;
+  /* --right-answer-border: 2px solid #05fa3a; */
+  --right-answer-border: 2.5px solid #04FB39;
+ 
   --wrong-answer-border: 2px solid red;
   --error-btn-color:  red;
   --main-border: 0px;
-  --body-fon: lightblue;
+  --body-fon: #ADD8E6;
   --text-color: #007373;
   --toogle-on-color: #0079f2;
   --font-weight:bold;
@@ -235,7 +237,7 @@ p{
   padding: 1% 1% 1% 1%;   
   display: none;
   /* background-color: red; */
-  margin: 8% auto;
+  margin: 8% 0%;
   height: 40px;
 }
 
