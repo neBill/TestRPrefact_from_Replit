@@ -82,7 +82,7 @@ function getTestList() {
     s6 : [s6, "Стандарт 6р"],
     e6 : [e6, "Эксперт 6р"],
     econs : [econs, "Эконс"],
-    econs_added: [econs_added, "Эконс доп."],
+    // econs_added: [econs_added, "Эконс доп."],
     
 
   }    
