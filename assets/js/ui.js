@@ -601,6 +601,13 @@ function chooseTest(testId) {
   
 }
 
+function runAutoTest() {
+
+  alert(currentTest.id)
+
+
+}
+
 
 
 function showResultsPage() {
@@ -627,6 +634,8 @@ function showChosenTest(testName, testLength) {
   document.getElementById('button_home').style.display = "block";
   document.getElementById('button_menu').style.display = "none";
   document.getElementById('test-title').innerHTML = testName;
+
+
   document.getElementById('header_block').style.display = "none";
   // document.getElementById('remove_history_block').style.display = "block";
   
