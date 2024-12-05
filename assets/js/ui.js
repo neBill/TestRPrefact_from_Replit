@@ -615,10 +615,8 @@ function runAutoTest() {
 
   for( let i = 0; i < currentTest.test.length; i++)
   {
-
-    check(rightOptionIndex)
+     check(rightOptionIndex)
   }
-
 
 
 }
