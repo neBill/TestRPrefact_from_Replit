@@ -603,12 +603,23 @@ function chooseTest(testId) {
 
 function runAutoTest() {
 
-  //if (currentIndex.index === currentTest.test.length - 1) {  
+  // if (currentIndex.index === currentTest.test.length - 1) {  
+
+
+  //   alert('Готово')
+
+  // }
 
   
+  //alert(currentIndex.index)
+
+  for( let i = 0; i < currentTest.test.length; i++)
+  {
+
+    check(rightOptionIndex)
+  }
 
 
-  check(rightOptionIndex)
 
 }
 
