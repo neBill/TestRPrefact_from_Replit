@@ -603,8 +603,12 @@ function chooseTest(testId) {
 
 function runAutoTest() {
 
-  alert(currentTest.id)
+  //if (currentIndex.index === currentTest.test.length - 1) {  
 
+  
+
+
+  check(rightOptionIndex)
 
 }
 
