@@ -74,23 +74,27 @@ window.addEventListener('load', function() {
 
 function getTestList() {  
 
-  const newTests = {
-    // b5 : [b5, "База 5р"],     
-    // s5 : [s5, "Стандарт 5р"],
-    // e5 : [e5, "Эксперт 5р"],    
-    // b6 : [b6, "База 6р"],
-    // s6 : [s6, "Стандарт 6р"],
-    // e6 : [e6, "Эксперт 6р"],
-    // econs : [econs, "Эконс"],
-    // econs_added: [econs_added, "Эконс доп."],
+  // const newTests = {
+  //   // b5 : [b5, "База 5р"],     
+  //   // s5 : [s5, "Стандарт 5р"],
+  //   // e5 : [e5, "Эксперт 5р"],    
+  //   // b6 : [b6, "База 6р"],
+  //   // s6 : [s6, "Стандарт 6р"],
+  //   // e6 : [e6, "Эксперт 6р"],
+  //   // econs : [econs, "Эконс"],
+  //   // econs_added: [econs_added, "Эконс доп."],
     
 
-  }    
+  // }    
   const oldTests = {
     // level_5b : [test_5b, "Стандарт 5р"],     
-    level_6b : [test_6s, "Стандарт 6р"],
+    st6_1 : [test_6s_block_1, "6p Стандарт 1"],
+    st6_2 : [test_6s_block_2, "6p Стандарт 2"],
+    st6_3 : [test_6s_block_3, "6p Стандарт 3"],
+    st6_4 : [test_6s_block_4, "6p Стандарт 4"],
     // level_6e : [test_6e, "Эксперт 6р"],
-    ot : [test_ot, "Охрана труда 1"],
+    ot_1 : [test_ot_block_1, "Охрана труда 1"],
+    ot_2 : [test_ot_block_2, "Охрана труда 2"],
     // ot_maxim : [test_maxim, "Охрана труда 2"],    
     // micro_5 : [micro_5, "Микротесты 5р"],
     
@@ -100,12 +104,14 @@ function getTestList() {
     // temp_test : test, 
   }
 
-  if(isNewBases) {      
-    return newTests;    
-  }
-  else {  
-    return oldTests;
-  }
+  // if(isNewBases) {      
+  //   return newTests;    
+  // }
+  // else {  
+  //   return oldTests;
+  // }
+
+  return oldTests;
 
 }
 
@@ -244,11 +250,11 @@ function apply(togglesState){
   document.getElementById('theme_toggle').checked = togglesState.isDarkTheme; 
   document.getElementById('shuffle_toggle').checked = togglesState.isShuffle;
   document.getElementById('learn_mode_toggle').checked = togglesState.isLearn;
-  document.getElementById('new_bases_toggle').checked = togglesState.isNewBases;
+  // document.getElementById('new_bases_toggle').checked = togglesState.isNewBases;
 
   isLearnMode = togglesState.isLearn;
   isShuffle = togglesState.isShuffle;
-  isNewBases = togglesState.isNewBases;
+  // isNewBases = togglesState.isNewBases;
 
   if (togglesState.isDarkTheme == true) { 
 
@@ -289,7 +295,7 @@ function saveSettings(){
     isLearn:document.getElementById('learn_mode_toggle').checked,
     isShuffle:document.getElementById('shuffle_toggle').checked,
     isDarkTheme:document.getElementById('theme_toggle').checked,
-    isNewBases:document.getElementById('new_bases_toggle').checked,
+    // isNewBases:document.getElementById('new_bases_toggle').checked,
   }
 
   apply(togglesState);
