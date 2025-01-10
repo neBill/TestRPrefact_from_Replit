@@ -75,25 +75,28 @@ window.addEventListener('load', function() {
 function getTestList() {  
 
   const newTests = {
-    b5 : [b5, "База 5р"],     
-    s5 : [s5, "Стандарт 5р"],
-    e5 : [e5, "Эксперт 5р"],    
-    b6 : [b6, "База 6р"],
-    s6 : [s6, "Стандарт 6р"],
-    e6 : [e6, "Эксперт 6р"],
-    econs : [econs, "Эконс"],
+    // b5 : [b5, "База 5р"],     
+    // s5 : [s5, "Стандарт 5р"],
+    // e5 : [e5, "Эксперт 5р"],    
+    // b6 : [b6, "База 6р"],
+    // s6 : [s6, "Стандарт 6р"],
+    // e6 : [e6, "Эксперт 6р"],
+    // econs : [econs, "Эконс"],
     // econs_added: [econs_added, "Эконс доп."],
     
 
   }    
   const oldTests = {
-    level_5b : [test_5b, "Стандарт 5р"],     
-    level_6b : [test_6b, "Стандарт 6р"],
-    level_6e : [test_6e, "Эксперт 6р"],
+    // level_5b : [test_5b, "Стандарт 5р"],     
+    level_6b : [test_6s, "Стандарт 6р"],
+    // level_6e : [test_6e, "Эксперт 6р"],
     ot : [test_ot, "Охрана труда 1"],
-    ot_maxim : [test_maxim, "Охрана труда 2"],    
-    micro_5 : [micro_5, "Микротесты 5р"],
-    micro_6 : [micro_6, "Микротесты 6р"],
+    // ot_maxim : [test_maxim, "Охрана труда 2"],    
+    // micro_5 : [micro_5, "Микротесты 5р"],
+    
+
+    
+    // micro_6 : [micro_6, "Микротесты 6р"],
     // temp_test : test, 
   }
 
