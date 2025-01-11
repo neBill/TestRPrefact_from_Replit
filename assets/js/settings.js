@@ -92,7 +92,7 @@ function getTestList() {
     st6_2 : [test_6s_block_2, "6p Стандарт 2"],
     st6_3 : [test_6s_block_3, "6p Стандарт 3"],
     st6_4 : [test_6s_block_4, "6p Стандарт 4"],
-    // level_6e : [test_6e, "Эксперт 6р"],
+    ex6 : [test_6e_block_1, "6р Эксперт"],
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
     // ot_maxim : [test_maxim, "Охрана труда 2"],    
