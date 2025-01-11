@@ -1,3 +1,10 @@
+
+
+let lev5_toggle = document.getElementById('lev5')
+let lev6_toggle = document.getElementById('lev6')
+
+
+
 'use strict';
 
 function chageFontSize(buttonId){  
@@ -71,6 +78,35 @@ window.addEventListener('load', function() {
     window.history.pushState({}, '')
 });
 
+lev5_toggle.addEventListener('change', function() {
+
+  let toggle_state = lev5_toggle.checked;
+
+  if(toggle_state === true){
+
+    lev6_toggle.checked = false;
+  }else{
+
+    lev6_toggle.checked = true;
+  }
+
+  
+});
+
+lev6_toggle.addEventListener('change', function() {
+
+  let toggle_state = lev6_toggle.checked;
+
+  if(toggle_state === true){
+
+    lev5_toggle.checked = false;
+  }else{
+
+    lev5_toggle.checked = true;
+  }
+
+  
+});
 
 function getTestList() {  
 
