@@ -78,6 +78,8 @@ window.addEventListener('load', function() {
     window.history.pushState({}, '')
 });
 
+
+
 lev5_toggle.addEventListener('change', function() {
 
   let toggle_state = lev5_toggle.checked;
@@ -85,9 +87,11 @@ lev5_toggle.addEventListener('change', function() {
   if(toggle_state === true){
 
     lev6_toggle.checked = false;
+    isTest6 = false;
   }else{
 
     lev6_toggle.checked = true;
+    isTest6 = true;
   }
 
   
@@ -100,9 +104,11 @@ lev6_toggle.addEventListener('change', function() {
   if(toggle_state === true){
 
     lev5_toggle.checked = false;
+    isTest6 = true;
   }else{
 
     lev5_toggle.checked = true;
+    isTest6 = false;
   }
 
   
@@ -110,19 +116,22 @@ lev6_toggle.addEventListener('change', function() {
 
 function getTestList() {  
 
-  // const newTests = {
-  //   // b5 : [b5, "База 5р"],     
-  //   // s5 : [s5, "Стандарт 5р"],
-  //   // e5 : [e5, "Эксперт 5р"],    
-  //   // b6 : [b6, "База 6р"],
-  //   // s6 : [s6, "Стандарт 6р"],
-  //   // e6 : [e6, "Эксперт 6р"],
-  //   // econs : [econs, "Эконс"],
-  //   // econs_added: [econs_added, "Эконс доп."],
-    
+  const test5 = {
+    // b5 : [b5, "База 5р"],     
+    // s5 : [s5, "Стандарт 5р"],
+    // e5 : [e5, "Эксперт 5р"],    
+    // b6 : [b6, "База 6р"],
+    // s6 : [s6, "Стандарт 6р"],
+    // e6 : [e6, "Эксперт 6р"],
+    // econs : [econs, "Эконс"],
+    // econs_added: [econs_added, "Эконс доп."],
+    ot_1 : [test_ot_block_1, "Охрана труда 1"],
+    ot_2 : [test_ot_block_2, "Охрана труда 2"],
 
-  // }    
-  const oldTests = {
+  }   
+  
+  
+  const test6 = {
     // level_5b : [test_5b, "Стандарт 5р"],     
     st6_1 : [test_6s_block_1, "6p Стандарт 1"],
     st6_2 : [test_6s_block_2, "6p Стандарт 2"],
@@ -140,14 +149,14 @@ function getTestList() {
     // temp_test : test, 
   }
 
-  // if(isNewBases) {      
-  //   return newTests;    
-  // }
-  // else {  
-  //   return oldTests;
-  // }
+  if(isTest6) {      
+    return test6;    
+  }
+  else {  
+    return test5;
+  }
 
-  return oldTests;
+  //return oldTests;
 
 }
 

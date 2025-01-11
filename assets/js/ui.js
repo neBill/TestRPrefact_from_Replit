@@ -6,7 +6,7 @@ let historyIndex;
 let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
-// let isNewBases = false;
+let isTest6 = true;
 
 
 class CurrentTest {
