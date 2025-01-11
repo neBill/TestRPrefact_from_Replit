@@ -125,6 +125,8 @@ function getTestList() {
     // e6 : [e6, "Эксперт 6р"],
     // econs : [econs, "Эконс"],
     // econs_added: [econs_added, "Эконс доп."],
+    st5_1 : [test_5s_block_1, "5p Стандарт 1"],
+    st5_2 : [test_5s_block_2, "5p Стандарт 2"],
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
 
