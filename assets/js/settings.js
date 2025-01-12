@@ -65,7 +65,11 @@ function clearCurrentHistory() {
 window.addEventListener("load", ()=>{  
   document.body.className = 'light-theme';  
   loadSettings();  
+
+
   const testList = getTestList(); 
+
+  
   createTestButtons(testList);
 });
 
@@ -117,14 +121,7 @@ lev6_toggle.addEventListener('change', function() {
 function getTestList() {  
 
   const test5 = {
-    // b5 : [b5, "База 5р"],     
-    // s5 : [s5, "Стандарт 5р"],
-    // e5 : [e5, "Эксперт 5р"],    
-    // b6 : [b6, "База 6р"],
-    // s6 : [s6, "Стандарт 6р"],
-    // e6 : [e6, "Эксперт 6р"],
-    // econs : [econs, "Эконс"],
-    // econs_added: [econs_added, "Эконс доп."],
+   
     st5_1 : [test_5s_block_1, "5p Стандарт 1"],
     st5_2 : [test_5s_block_2, "5p Стандарт 2"],
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
@@ -134,7 +131,7 @@ function getTestList() {
   
   
   const test6 = {
-    // level_5b : [test_5b, "Стандарт 5р"],     
+       
     st6_1 : [test_6s_block_1, "6p Стандарт 1"],
     st6_2 : [test_6s_block_2, "6p Стандарт 2"],
     st6_3 : [test_6s_block_3, "6p Стандарт 3"],
@@ -142,13 +139,7 @@ function getTestList() {
     ex6 : [test_6e_block_1, "6р Эксперт"],
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
-    // ot_maxim : [test_maxim, "Охрана труда 2"],    
-    // micro_5 : [micro_5, "Микротесты 5р"],
-    
-
-    
-    // micro_6 : [micro_6, "Микротесты 6р"],
-    // temp_test : test, 
+   
   }
 
   if(isTest6) {      
@@ -158,7 +149,7 @@ function getTestList() {
     return test5;
   }
 
-  //return oldTests;
+  
 
 }
 
@@ -252,6 +243,8 @@ function showHideMenu() {
     ddMenu.style.display = "none";
     saveSettings();
 
+    //alert(isTest6)
+
     removeButtons();
 
     const testList = getTestList();
@@ -297,7 +290,20 @@ function apply(togglesState){
   document.getElementById('theme_toggle').checked = togglesState.isDarkTheme; 
   document.getElementById('shuffle_toggle').checked = togglesState.isShuffle;
   document.getElementById('learn_mode_toggle').checked = togglesState.isLearn;
-  // document.getElementById('new_bases_toggle').checked = togglesState.isNewBases;
+  lev6_toggle.checked = togglesState.isTest6;
+
+  if(togglesState.isTest6 === true) {
+
+    lev6_toggle.checked = true;
+    isTest6 = true;
+
+  }else{
+
+    lev5_toggle.checked = true;
+    isTest6 = false;
+
+  }
+  
 
   isLearnMode = togglesState.isLearn;
   isShuffle = togglesState.isShuffle;
@@ -339,10 +345,10 @@ function saveSettings(){
 
   const togglesState = {
    // isHistory:document.getElementById('save_history_toggle').checked,
-    isLearn:document.getElementById('learn_mode_toggle').checked,
-    isShuffle:document.getElementById('shuffle_toggle').checked,
-    isDarkTheme:document.getElementById('theme_toggle').checked,
-    // isNewBases:document.getElementById('new_bases_toggle').checked,
+    isLearn : document.getElementById('learn_mode_toggle').checked,
+    isShuffle : document.getElementById('shuffle_toggle').checked,
+    isDarkTheme : document.getElementById('theme_toggle').checked,
+    isTest6 : lev6_toggle.checked,
   }
 
   apply(togglesState);
