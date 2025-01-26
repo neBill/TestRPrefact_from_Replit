@@ -126,6 +126,7 @@ function getTestList() {
     st5_2 : [test_5s_block_2, "5p Стандарт 2"],
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
+    ot5_2025 : [test_otrp, "ОT 2025"],
 
   }   
   
@@ -139,7 +140,7 @@ function getTestList() {
     ex6 : [test_6e_block_1, "6р Эксперт"],
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
-    ot_2025 : [test_otrp, "ОT 2025"],
+    ot6_2025 : [test_otrp, "ОT 2025"],
    
   }
 
