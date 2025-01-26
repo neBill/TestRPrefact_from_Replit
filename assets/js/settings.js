@@ -81,8 +81,8 @@ function getTestList() {
     b6 : [b6, "База 6р"],
     s6 : [s6, "Стандарт 6р"],
     e6 : [e6, "Эксперт 6р"],
-    econs : [econs, "Эконс"],
-    // econs_added: [econs_added, "Эконс доп."],
+    econs : [econs, "Эконс"],    
+    
     
 
   }    
@@ -94,7 +94,7 @@ function getTestList() {
     ot_maxim : [test_maxim, "Охрана труда 2"],    
     micro_5 : [micro_5, "Микротесты 5р"],
     micro_6 : [micro_6, "Микротесты 6р"],
-    // temp_test : test, 
+    ot_2025 : [test_otrp, "OT 2025"], 
   }
 
   if(isNewBases) {      

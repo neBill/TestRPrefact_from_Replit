@@ -6,6 +6,7 @@ const assets = [
   '/assets/js/ui.js',
   '/assets/js/app.js',
   '/assets/js/ot.js',
+  '/assets/js/ot2025.js',
   '/assets/js/data.js',
   '/assets/js/settings.js',
   '/assets/js/otmaxim.js',
