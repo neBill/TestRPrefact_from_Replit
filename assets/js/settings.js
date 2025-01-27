@@ -1,8 +1,8 @@
 const lev5Toggle = document.getElementById('lev5');
 const lev6Toggle = document.getElementById('lev6');
 const themeToggle =  document.getElementById('theme'); 
-const shuffleToggle =document.getElementById('shuffle');
-const learnmodeToggle =document.getElementById('learn_mode');
+const shuffleToggle = document.getElementById('shuffle');
+const learnmodeToggle = document.getElementById('learn_mode');
 const helpBlock = document.getElementById("help_block");
 const buttonsBlock = document.getElementById('levels');
 
@@ -286,14 +286,12 @@ function loadSettings(){
 
 }
 
-function apply(togglesState){  
-
-  // document.getElementById('theme_toggle').checked = togglesState.isDarkTheme; 
-  // document.getElementById('shuffle_toggle').checked = togglesState.isShuffle;
-  // document.getElementById('learn_mode_toggle').checked = togglesState.isLearn;
+function apply(togglesState){    
 
   themeToggle.checked = togglesState.isDarkTheme; 
+  
   shuffleToggle.checked = togglesState.isShuffle;
+
   learnmodeToggle.checked = togglesState.isLearn;
 
   lev6Toggle.checked = togglesState.isTest6;
@@ -301,18 +299,22 @@ function apply(togglesState){
   if(togglesState.isTest6 === true) {
 
     lev6Toggle.checked = true;
+
     isTest6 = true;
 
   }else{
 
     lev5Toggle.checked = true;
+
     isTest6 = false;
 
   }
   
 
   isLearnMode = togglesState.isLearn;
+
   isShuffle = togglesState.isShuffle;
+
   // isNewBases = togglesState.isNewBases;
 
   if (togglesState.isDarkTheme == true) { 
