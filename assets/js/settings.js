@@ -1,8 +1,10 @@
-let lev5Toggle = document.getElementById('lev5');
-let lev6Toggle = document.getElementById('lev6');
-let themeToggle =  document.getElementById('theme'); 
-let shuffleToggle =document.getElementById('shuffle');
-let learnmodeToggle =document.getElementById('learn_mode');
+const lev5Toggle = document.getElementById('lev5');
+const lev6Toggle = document.getElementById('lev6');
+const themeToggle =  document.getElementById('theme'); 
+const shuffleToggle =document.getElementById('shuffle');
+const learnmodeToggle =document.getElementById('learn_mode');
+const helpBlock = document.getElementById("help_block");
+const buttonsBlock = document.getElementById('levels');
 
 
 
@@ -157,13 +159,10 @@ function getTestList() {
 }
 
 function createTestButtons(testList){
-
-    const testButtons = document.getElementById('levels');
-
+    
     for(let testId in testList){
 
       const testButton = document.createElement('button');
-
 
       testButton.id = testId;
 
@@ -171,16 +170,15 @@ function createTestButtons(testList){
 
       testButton.textContent = testList[testId][1];
 
-      testButtons.appendChild(testButton);
+      buttonsBlock.appendChild(testButton);
 
     }
 
 }
 
 function removeButtons() {
-
-  const buttonsDiv = document.getElementById('levels');  
-  buttonsDiv.innerHTML = '';
+    
+  buttonsBlock.innerHTML = '';
   
 }
 
@@ -264,14 +262,14 @@ function showHideMenu() {
 
 function hideHelpPage() {
 
-  document.getElementById("help_block").style.display = "none"; 
-  //alert('hhh')
+  helpBlock.style.display = "none";  
 
 }
 
 function showHelpPage() {
 
-  document.getElementById("help_block").style.display = "block"; 
+  helpBlock.style.display = "block"; 
+
   showHideMenu();
 
 }
