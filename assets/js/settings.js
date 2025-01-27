@@ -1,7 +1,8 @@
-
-
-let lev5_toggle = document.getElementById('lev5')
-let lev6_toggle = document.getElementById('lev6')
+let lev5Toggle = document.getElementById('lev5');
+let lev6Toggle = document.getElementById('lev6');
+let themeToggle =  document.getElementById('theme'); 
+let shuffleToggle =document.getElementById('shuffle');
+let learnmodeToggle =document.getElementById('learn_mode');
 
 
 
@@ -84,34 +85,34 @@ window.addEventListener('load', function() {
 
 
 
-lev5_toggle.addEventListener('change', function() {
+lev5Toggle.addEventListener('change', function() {
 
-  let toggle_state = lev5_toggle.checked;
+  let toggleState = lev5Toggle.checked;
 
-  if(toggle_state === true){
+  if(toggleState === true){
 
-    lev6_toggle.checked = false;
+    lev6Toggle.checked = false;
     isTest6 = false;
   }else{
 
-    lev6_toggle.checked = true;
+    lev6Toggle.checked = true;
     isTest6 = true;
   }
 
   
 });
 
-lev6_toggle.addEventListener('change', function() {
+lev6Toggle.addEventListener('change', function() {
 
-  let toggle_state = lev6_toggle.checked;
+  let toggleState = lev6Toggle.checked;
 
-  if(toggle_state === true){
+  if(toggleState === true){
 
-    lev5_toggle.checked = false;
+    lev5Toggle.checked = false;
     isTest6 = true;
   }else{
 
-    lev5_toggle.checked = true;
+    lev5Toggle.checked = true;
     isTest6 = false;
   }
 
@@ -289,19 +290,24 @@ function loadSettings(){
 
 function apply(togglesState){  
 
-  document.getElementById('theme_toggle').checked = togglesState.isDarkTheme; 
-  document.getElementById('shuffle_toggle').checked = togglesState.isShuffle;
-  document.getElementById('learn_mode_toggle').checked = togglesState.isLearn;
-  lev6_toggle.checked = togglesState.isTest6;
+  // document.getElementById('theme_toggle').checked = togglesState.isDarkTheme; 
+  // document.getElementById('shuffle_toggle').checked = togglesState.isShuffle;
+  // document.getElementById('learn_mode_toggle').checked = togglesState.isLearn;
+
+  themeToggle.checked = togglesState.isDarkTheme; 
+  shuffleToggle.checked = togglesState.isShuffle;
+  learnmodeToggle.checked = togglesState.isLearn;
+
+  lev6Toggle.checked = togglesState.isTest6;
 
   if(togglesState.isTest6 === true) {
 
-    lev6_toggle.checked = true;
+    lev6Toggle.checked = true;
     isTest6 = true;
 
   }else{
 
-    lev5_toggle.checked = true;
+    lev5Toggle.checked = true;
     isTest6 = false;
 
   }
@@ -347,10 +353,10 @@ function saveSettings(){
 
   const togglesState = {
    // isHistory:document.getElementById('save_history_toggle').checked,
-    isLearn : document.getElementById('learn_mode_toggle').checked,
-    isShuffle : document.getElementById('shuffle_toggle').checked,
-    isDarkTheme : document.getElementById('theme_toggle').checked,
-    isTest6 : lev6_toggle.checked,
+    isLearn : learnmodeToggle.checked,
+    isShuffle : shuffleToggle.checked,
+    isDarkTheme : themeToggle.checked,
+    isTest6 : lev6Toggle.checked,
   }
 
   apply(togglesState);
