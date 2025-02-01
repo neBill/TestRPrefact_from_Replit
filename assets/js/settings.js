@@ -127,9 +127,11 @@ function getTestList() {
    
     st5_1 : [test_5s_block_1, "5p Стандарт 1"],
     st5_2 : [test_5s_block_2, "5p Стандарт 2"],
+    ex5 : [test_5ex, "5р эксперт"],
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
     ot5_2025 : [test_otrp, "ОT 2025"],
+    
 
   }   
   
