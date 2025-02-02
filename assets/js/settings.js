@@ -94,10 +94,13 @@ lev5Toggle.addEventListener('change', function() {
   if(toggleState === true){
 
     lev6Toggle.checked = false;
+
     isTest6 = false;
+
   }else{
 
     lev6Toggle.checked = true;
+
     isTest6 = true;
   }
 
@@ -111,10 +114,13 @@ lev6Toggle.addEventListener('change', function() {
   if(toggleState === true){
 
     lev5Toggle.checked = false;
+
     isTest6 = true;
+
   }else{
 
     lev5Toggle.checked = true;
+
     isTest6 = false;
   }
 
@@ -185,58 +191,19 @@ function removeButtons() {
 }
 
 
-
-//////////////////////////????????????
-
-//   let deviceId = localStorage.getItem('deviceId');
-
-//   if (!deviceId) {
-
-//     deviceId = generateDeviceId();
-//     localStorage.setItem('deviceId', deviceId);
-
-//   }
-
-// }
-
-
 function showHistoryDropdown(){
 
-  //document.getElementById("dropDown_History").style.display = "block";
   document.getElementById("dropDown_History").classList.toggle("visible");
+
 }
 
-// function showMenu() {
-
-//   //let isMenuShown = document.getElementById("dropDownMenu").classList.toggle("visible");
-//   document.getElementById("dropDownMenu").style.display = "block";
-
-//   // if(isMenuShown === false){
-
-//   //   saveSettings();
-
-//   // }
-
-// }
-
-// function hideMenu() { 
-
-//   document.getElementById("dropDownMenu").style.display = "none"; 
-
-//   saveSettings();
-
-//   removeButtons();
-
-//   const testList = getTestList();
- 
-//   createTestButtons(testList);
-  
-// }
 
 function showHideMenu() {
 
   const ddMenu = document.getElementById("dropDownMenu");
+
   let display = window.getComputedStyle(ddMenu).display;
+
   if(display === "none")
   {
       ddMenu.style.display = "block";
@@ -244,9 +211,8 @@ function showHideMenu() {
   else {
 
     ddMenu.style.display = "none";
-    saveSettings();
 
-    //alert(isTest6)
+    saveSettings();      
 
     removeButtons();
 
@@ -257,9 +223,6 @@ function showHideMenu() {
   
   
 }
-
-
-
 
 
 function hideHelpPage() {
@@ -310,51 +273,29 @@ function apply(togglesState){
 
     isTest6 = false;
 
-  }
-  
+  }  
 
   isLearnMode = togglesState.isLearn;
 
   isShuffle = togglesState.isShuffle;
 
-  // isNewBases = togglesState.isNewBases;
-
   if (togglesState.isDarkTheme == true) { 
 
-    //document.documentElement.setAttribute('theme', 'dark');
     document.body.className = 'dark-theme';
-  }
-  else {
 
-     //document.documentElement.removeAttribute('theme'); 
+  }
+  else {  
+
     document.body.className = 'light-theme';
+
   }
-
-
 
 }
-
-
-// document.getElementById('themeToggle').addEventListener('click', function() {
-//     // Этот код будет выполняться при каждом клике на кнопку
-
-//     // Получаем текущий класс, заданный для элемента body (текущую тему)
-//     const currentTheme = document.body.className;
-
-//     // Проверяем, является ли текущая тема светлой
-//     if (currentTheme === 'light-theme') {
-//         // Если да, меняем тему на темную
-//         document.body.className = 'dark-theme';
-//     } else {
-//         // Если текущая тема не светлая (или отсутствует), устанавливаем светлую тему
-//         document.body.className = 'light-theme';
-//     }
-// });
 
 function saveSettings(){  
 
   const togglesState = {
-   // isHistory:document.getElementById('save_history_toggle').checked,
+  
     isLearn : learnmodeToggle.checked,
     isShuffle : shuffleToggle.checked,
     isDarkTheme : themeToggle.checked,
@@ -365,30 +306,4 @@ function saveSettings(){
 
   localStorage.setItem("settings", JSON.stringify(togglesState));
 }
-
-// function generateDeviceId() {
-//   // generate a random string
-//   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-// }
-
-// function temp() {
-
-//   // let ts = test
-//   // //alert(ts[0][1].length)
-
-//   // for (var i = 0; i < ts.length; ++i) {
-    
-//   //   if (ts[0][1].length != 4) {
-
-//   //     alert(ts[0][1].length + "  --> " +  (i+1))
-      
-//   //   }
-
-    
-//   // }
-
-//   // alert("Ok")
-
-// }
-
 
