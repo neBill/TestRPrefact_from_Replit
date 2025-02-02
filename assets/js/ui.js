@@ -78,17 +78,26 @@ function showErrors(id) {
   const chosenIndex = indexes[1]; 
 
   let answerButtonBorder;
+
   for (var i = 0; i < 4; ++i) {
+
     answerButtonBorder = 'none';
+
     if (currentTest.test[index][1][i][1] == 1) {
+
       answerButtonBorder = 'var(--right-answer-border)';
+
     }
 
     document.getElementById('option' + i).style.border = answerButtonBorder;
+
     document.getElementById('option' + i).innerHTML = currentTest.test[index][1][i][0];
+
     document.getElementById('option' + i).disabled = true;
   }
+
   document.getElementById('option' + chosenIndex).style.border = 'var(--wrong-answer-border)';
+
   document.getElementById('question').innerHTML = currentTest.test[index][0];
 }
 
@@ -103,6 +112,7 @@ function updateQuestionBlock() {
     while(optionsCount < 4) {
 
       currentQuestionBlock[1].push(["Нет варианта ответа (*)", 0]);
+
       optionsCount++;
 
     }
@@ -113,13 +123,20 @@ function updateQuestionBlock() {
   shuffle(currentQuestionBlock[1]);  
 
   for (var i = 0; i < 4; ++i) {
+
     if (currentQuestionBlock[1][i][1] == 1) {
+
       rightOptionIndex = i;
+
     }
+
     document.getElementById('option' + i).innerHTML = currentQuestionBlock[1][i][0];
+
     document.getElementById('option' + i).style.border = 'none';
+
     document.getElementById('option' + i).disabled = false;
   }
+
   document.getElementById('question').innerHTML = currentQuestionBlock[0];
 
   document.getElementById('counter').innerHTML = `Вопрос: ${currentIndex.index + 1}/${currentTest.test.length}`;
@@ -147,7 +164,9 @@ function setTrainingMode(optionIndex) {
     document.getElementById('option' + optionIndex).style.border = borderColor;  
 
   for (let element of document.getElementById('test').children) {
+
     element.disabled = true;
+
   }
 
 }
@@ -168,32 +187,26 @@ function calcRightAnswers(questionsQuantity, errorsQuantity ) {
 function showTestResult(isTestFinished) {
 
   if(currentIndex.index === 0 || isAnswerDone === false) {
+
     showLevels();
+
     return;
-  }
 
-  // let testState = '';
-  // let state = ''; 
+  } 
 
-  let testState, questionQuantity, state = '';
- // let state = ''; 
+  let testState, questionQuantity, state = ''; 
 
   if (localStorage.getItem(currentTest.id)) {
 
     getErrorsArray();
 
-    //alert(wrongAnswers)
   }
 
 
-  //let questionQuantity = '';
-
-
-
   if (isTestFinished === false) {
-
-   // testState = `<br>Тест остановлен.<br>Пройдено вопросов: ${currentQuestionIndex} из ${currentTest.length}<br>`;
+  
      state = 'остановлен';
+     
      questionQuantity = currentIndex.index;
 
   }
@@ -201,7 +214,9 @@ function showTestResult(isTestFinished) {
   else {
 
     state = 'завершен';
+
     questionQuantity = currentIndex.index + 1;
+
   }
 
   testState = `<br>Тест ${state}.<br>Пройдено вопросов: ${questionQuantity} из ${currentTest.test.length}<br>`;
@@ -213,7 +228,9 @@ function showTestResult(isTestFinished) {
   let success = '';
 
   if(state === 'завершен') {
+
       success = '<br>Тест успешно пройден!<br>';    
+
   }
 
   const unsuccess = '<br>Ваши ошибки:<br>';
@@ -225,31 +242,34 @@ function showTestResult(isTestFinished) {
   document.getElementById('result').innerHTML = result;
 
   for (var index = 0; index < wrongAnswers.errors.length; ++index) {
+
     const btn = document.getElementById('errors');
+
     btn.innerHTML += `<button id="${index}" class="error_button">${index + 1}</button>`;
+
   }
 }
 
-
-
 document.addEventListener("click", function(event) {
+
   const buttonClass = event.target.className;
 
   const buttonId = event.target.id;
 
   if (buttonClass == "error_button") {
 
-
     const links = document.querySelectorAll(".error_button");
-
 
     showErrors(buttonId);
 
     links.forEach(link => {
+
       link.setAttribute("style", "background:`:root { --main-bg-color}`");
 
     });
+
     document.getElementById(buttonId).style.background = "var(--error-btn-color)";
+
   }
 
 
@@ -271,11 +291,11 @@ button_home.addEventListener("click", function(event) {
   if (buttonText == "Завершить") {
 
     showResultsPage();
+
     showTestResult(false);
 
-
-
   }
+
   if (buttonText == "На главную") { 
 
     isAnswerDone = false;
@@ -288,19 +308,19 @@ button_home.addEventListener("click", function(event) {
   if(isShuffle) {
 
     localStorage.removeItem(currentTest.id);
-    currentTest.id = '';
 
+    currentTest.id = '';
 
   }
 
   currentIndex.index = 0;
-
 
 })
 
 button_next.addEventListener("click", function() {
 
   updateQuestionBlock();
+
   document.getElementById('button_next').style.display = "none";
 
 })
@@ -321,21 +341,15 @@ function saveTestHistory(optionIndex) {
 
   }
 
-
   if(savedItem == null){
-
-
 
     localStorage.setItem(testSavedName, `${currentIndex.index}$${wrongOption}`);
 
   } else {
 
+    let history = savedItem.split("$");
 
-      let history = savedItem.split("$");
-
-      let historyData = history[1];
-
-
+    let historyData = history[1];
 
     if (history[0] <= currentTest.test.length) {
 
@@ -347,9 +361,7 @@ function saveTestHistory(optionIndex) {
 
       }
 
-
-      if (wrongOption.length == 0) {        
-
+      if (wrongOption.length == 0) {       
 
         newData = `${currentIndex.index}$${historyData}`;
 
@@ -359,22 +371,17 @@ function saveTestHistory(optionIndex) {
 
       }
 
-
       localStorage.setItem(testSavedName, newData);
 
     }
 
   }
 
-
 }
-
 
 function check(optionIndex) {  
 
   isAnswerDone = true; 
-
-  //alert(currentIndex.index)
 
   if (currentIndex.index === currentTest.test.length - 1) {  
 
@@ -382,16 +389,12 @@ function check(optionIndex) {
 
     return;
 
-  }
-  // //  LearnMode   
-  // if (isLearnMode === true && optionIndex != rightOptionIndex) {     
-
-  //   setTrainingMode(optionIndex);
-  //   return;
-  // } 
+  } 
 
   if(isHistorySave){   
+
     saveTestHistory(optionIndex);
+
   }
 
 
@@ -402,35 +405,32 @@ function check(optionIndex) {
   ///////////////////////////////////////////////////////////////////////////
  // if (isLearnMode === true) { 
   if (isLearnMode === true && optionIndex != rightOptionIndex) { 
+
     setTrainingMode(optionIndex);
+
     currentIndex.index++;
+
     return;
+
   } 
 
   currentIndex.index++;
-
-
 
   updateQuestionBlock();
 
 }
 
 function finilizeTest(optionIndex) {
-
- // if(isHistorySave){
-    saveTestHistory(optionIndex);
-  //}
+ 
+  saveTestHistory(optionIndex);
+ 
   showResultsPage();
+
   showTestResult(true);
 
   currentIndex.index = 0;
 
-
-
 }
-
-
-
 
 function showMainPage() {
 
@@ -443,8 +443,6 @@ function showMainPage() {
   document.getElementById('result').style.display = "none";
 
 }
-
-
 
 function showLevels() {
 
@@ -459,12 +457,13 @@ function showLevels() {
   document.getElementById('header_block').style.display = "block";
   // document.getElementById('remove_history_block').style.display = "none";
 
-      wrongAnswers.errors.length = 0;
+  wrongAnswers.errors.length = 0;
 
   //currentQuestionIndex = 0;
 }
 
 function showTest() {
+
   document.getElementById('questions_counter').style.display = 'block';
   document.getElementById('levels').style.display = "none";
   document.getElementById('counter').style.display = "block";
@@ -485,6 +484,7 @@ function getCurrentIndex(testId) {
       removeTestHistory(testId);
 
     }
+
     if(extractIndex(history) < currentTest.test.length ) {
 
        currentIndex = extractIndex(history)
@@ -519,7 +519,7 @@ function getErrorsArray() {
 
     var array = JSON.parse(error);
 
-        wrongAnswers.addError(array)
+    wrongAnswers.addError(array)
 
   });
 
@@ -527,20 +527,14 @@ function getErrorsArray() {
 }
 
 
-
 //choose test
 document.addEventListener("click", function(event) {    
 
   if(event.target.className !== "test_button") return;
 
-  currentTest.id = event.target.id;            
-
- // currentTest.test = chooseTest(currentTest.id);
-  //alert(getTestList()[currentTest.id][0])
-
-  //testList[testId][1]
+  currentTest.id = event.target.id;         
+ 
   let currentTestList = getTestList();
-
   
   currentTest.test = currentTestList[currentTest.id][0]
 
