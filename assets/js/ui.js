@@ -8,6 +8,16 @@ let isShuffle = false;
 let isAnswerDone = false;
 let isTest6 = true;
 
+const btnHome = document.getElementById('button_home');
+const navBlock = document.getElementById('nav_block');
+const divLavels = document.getElementById('levels');
+  // document.getElementById('errors').innerHTML = "";
+  // document.getElementById('test-title').innerHTML = "";
+  // document.getElementById('results').style.display = "none";
+  const divTest = document.getElementById('test');
+  const btnMenu = document.getElementById('button_menu');
+  const headerBlock = document.getElementById('header_block');
+
 
 class CurrentTest {
    constructor(test, id) {
@@ -71,7 +81,7 @@ function showErrors(id) {
 
   let indexes =  wrongAnswers.errors[id];
 
-  document.getElementById('test').style.display = 'block';
+  divTest.style.display = 'block';
 
   const index = indexes[0];
 
@@ -163,7 +173,7 @@ function setTrainingMode(optionIndex) {
 
     document.getElementById('option' + optionIndex).style.border = borderColor;  
 
-  for (let element of document.getElementById('test').children) {
+  for (let element of divTest.children) {
 
     element.disabled = true;
 
@@ -284,7 +294,7 @@ document.addEventListener("click", function(event) {
 
 
 //переход на главную страницу,нажата кнопка На главную
-button_home.addEventListener("click", function(event) {
+btnHome.addEventListener("click", function(event) {
 
   const buttonText = event.target.textContent
 
@@ -436,25 +446,28 @@ function showMainPage() {
 
   document.getElementById('main_page').style.display = "block";
   document.getElementById('results').style.display = "none";
-  document.getElementById('levels').style.display = "none";
+  divLavels.style.display = "none";
   document.getElementById('questions_counter').style.display = 'none';
-  document.getElementById('test').style.display = "none";
-  document.getElementById('nav_block').style.display = "none";
+  divTest.style.display = "none";
+  navBlock.style.display = "none";
   document.getElementById('result').style.display = "none";
 
 }
 
 function showLevels() {
 
-  document.getElementById('button_home').style.display = "none";
-  document.getElementById('nav_block').style.display = "none";
-  document.getElementById('levels').style.display = "block";
+  //document.getElementById('button_home').style.display = "none";
+
+  btnHome.style.display = "none";
+
+  navBlock.style.display = "none";
+  divLavels.style.display = "block";
   document.getElementById('errors').innerHTML = "";
   document.getElementById('test-title').innerHTML = "";
   document.getElementById('results').style.display = "none";
-  document.getElementById('test').style.display = "none";
-  document.getElementById('button_menu').style.display = "block";
-  document.getElementById('header_block').style.display = "block";
+  divTest.style.display = "none";
+  btnMenu.style.display = "block";
+  headerBlock.style.display = "block";
   // document.getElementById('remove_history_block').style.display = "none";
 
   wrongAnswers.errors.length = 0;
@@ -465,7 +478,7 @@ function showLevels() {
 function showTest() {
 
   document.getElementById('questions_counter').style.display = 'block';
-  document.getElementById('levels').style.display = "none";
+  divLavels.style.display = "none";
   document.getElementById('counter').style.display = "block";
 }
 
@@ -598,30 +611,41 @@ function chooseTest(testId) {
 
 
 function showResultsPage() {
-  document.getElementById('button_home').style.display = "block";
+
+  //document.getElementById('button_home').style.display = "block";
+  btnHome.style.display = "block";
+
   document.getElementById('button_next').style.display = "none";
   document.getElementById('results').style.display = 'block';
-  document.getElementById('test').style.display = "none";
+  divTest.style.display = "none";
   document.getElementById('result').style.display = "block";
   document.getElementById('counter').style.display = "none";
-  document.getElementById('button_home').innerText = "На главную";
+  //document.getElementById('button_home').innerText = "На главную";
+
+  btnHome.innerText = "На главную";
+
   // document.getElementById('remove_history_block').style.display = "none";
 }
 
 function showChosenTest(testName, testLength) {
 
-  document.getElementById('test').style.display = "block";
+  divTest.style.display = "block";
   document.getElementById('counter').innerHTML = "Вопрос: 1/" + testLength;
   document.getElementById('counter').style.display = "block";
   document.getElementById('questions_counter').style.display = 'block';
-  document.getElementById('levels').style.display = "none";
-  document.getElementById('nav_block').style.display = "block";
+  divLavels.style.display = "none";
+  navBlock.style.display = "block";
   document.getElementById('button_next').style.display = "none";
-  document.getElementById('button_home').innerText = "Завершить";
-  document.getElementById('button_home').style.display = "block";
-  document.getElementById('button_menu').style.display = "none";
+
+  btnHome.innerText = "Завершить";
+  btnHome.style.display = "block";
+
+ // document.getElementById('button_home').style.display = "block";
+
+
+  btnMenu.style.display = "none";
   document.getElementById('test-title').innerHTML = testName;
-  document.getElementById('header_block').style.display = "none";
+  headerBlock.style.display = "none";
   // document.getElementById('remove_history_block').style.display = "block";
   
   
