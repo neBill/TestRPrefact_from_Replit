@@ -687,15 +687,20 @@ function list() {
   //alert(currentTest.test.length)
 
 
-  const parrentBlock = document.getElementById('q-list')
+  const parrentBlock = document.getElementById('q-list');
 
-   currentTest.test.forEach((qBlock) => {
+
+  let i = 0;
+
+  currentTest.test.forEach((qBlock) => {
 
     //alert(currentTest.test[0][0])
-    const line = document.createElement('p')
-    line.textContent = qBlock[0]
-    parrentBlock.appendChild(line)
-
+    const line = document.createElement('p');
+    line.textContent = qBlock[0];
+    line.id = i.toString();
+    line.className = "q-line"
+    parrentBlock.appendChild(line);
+    i++;
 
 
   })
@@ -715,4 +720,21 @@ function hideListBlock() {
   listBlock.style.display = "none";
 
 }
+
+document.addEventListener("click", function (event) {
+
+  let elemClass = event.target.className
+
+  if(elemClass === 'q-line'){
+
+    let elemId = event.target.id
+
+    alert(currentTest.test[elemId][1]);
+
+  }
+
+   
+
+
+});
   
