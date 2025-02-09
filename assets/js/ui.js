@@ -648,6 +648,15 @@ function showChosenTest(testName, testLength) {
   headerBlock.style.display = "none";
   // document.getElementById('remove_history_block').style.display = "block";
   
+ 
+  const testTitle = document.getElementById('test-title');
+
+  testTitle.addEventListener("click", list)
+
+  function list() {
+
+    alert("list")
+  }
   
 
 }
