@@ -17,6 +17,7 @@ const divLavels = document.getElementById('levels');
   const divTest = document.getElementById('test');
   const btnMenu = document.getElementById('button_menu');
   const headerBlock = document.getElementById('header_block');
+  const listBlock = document.getElementById('list-block');
 
 
 class CurrentTest {
@@ -649,14 +650,69 @@ function showChosenTest(testName, testLength) {
   // document.getElementById('remove_history_block').style.display = "block";
   
  
-  const testTitle = document.getElementById('test-title');
+  // const testTitle = document.getElementById('test-title');
 
-  testTitle.addEventListener("click", list)
+  // testTitle.addEventListener("click", list)
 
-  function list() {
+  // function list() {
 
-    alert("list")
-  }
+  //   listBlock.style.display = "block";
+
+  // }  
+  
+
+  // const btnHideList = document.getElementById('btn-hide-list')
+
+  // btnHideList.addEventListener("click", hideListBlock)
+
+  // function hideListBlock() {
+
+  //   listBlock.style.display = "none";
+
+  // }
+  
   
 
 }
+
+//////////////////////////////////////////////////////////////////////list///////////////////
+
+const testTitle = document.getElementById('test-title');
+
+testTitle.addEventListener("click", list)
+
+function list() {
+
+
+  //alert(currentTest.test.length)
+
+
+  const parrentBlock = document.getElementById('q-list')
+
+   currentTest.test.forEach((qBlock) => {
+
+    //alert(currentTest.test[0][0])
+    const line = document.createElement('p')
+    line.textContent = qBlock[0]
+    parrentBlock.appendChild(line)
+
+
+
+  })
+
+  listBlock.style.display = "block";
+
+
+}  
+  
+
+const btnHideList = document.getElementById('btn-hide-list')
+
+btnHideList.addEventListener("click", hideListBlock)
+
+function hideListBlock() {
+
+  listBlock.style.display = "none";
+
+}
+  
