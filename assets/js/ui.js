@@ -729,21 +729,33 @@ document.addEventListener("click", function (event) {
 
     let elemId = event.target.id;
 
-    let text = currentTest.test[elemId][1];
+    let text = currentTest.test[elemId][1];   
 
-    let qs = '';
+    const parrentBlock = document.getElementById('mod-content');    
 
-    let y;
+    while (parrentBlock.hasChildNodes()) {
+      parrentBlock.removeChild(parrentBlock.firstChild);
+    }
 
-    text.forEach((line) => {
+   
 
-      qs = qs + line + "<br>";
-
-      y++;
-
+    let i = 0;
+  
+    text.forEach((answer) => {
+  
+     
+      const line = document.createElement('p');
+      line.textContent = `${i + 1}) ${answer[0]}`;
+      line.id = i.toString();
+      line.className = "q-line"
+      parrentBlock.appendChild(line);
+      i++;
+  
+  
     })
+  
 
-    span.textContent = qs;
+   // span.textContent = qs;
     
     modal.style.display = "block";
 
@@ -756,14 +768,16 @@ document.addEventListener("click", function (event) {
 
 });
 
+
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+// var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 // btn.onclick = function() {
