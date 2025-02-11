@@ -152,6 +152,8 @@ function getTestList() {
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
     ot6_2025 : [test_otrp, "ОT 2025"],
+    ot6com_2025 : [test_otcom, "ОT 2025 ком"],
+    
    
   }
 
