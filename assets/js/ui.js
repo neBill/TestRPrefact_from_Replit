@@ -696,7 +696,7 @@ function list() {
 
     //alert(currentTest.test[0][0])
     const line = document.createElement('p');
-    line.textContent = qBlock[0];
+    line.textContent = `${i + 1}) ${qBlock[0]}`;
     line.id = i.toString();
     line.className = "q-line"
     parrentBlock.appendChild(line);
@@ -723,18 +723,31 @@ function hideListBlock() {
 
 document.addEventListener("click", function (event) {
 
-  let elemClass = event.target.className
+  let elemClass = event.target.className;
 
   if(elemClass === 'q-line'){
 
-    let elemId = event.target.id
+    let elemId = event.target.id;
 
-    //alert(currentTest.test[elemId][1]);
-    // Get the modal
-    //var modal = document.getElementById("myModal");
+    let text = currentTest.test[elemId][1];
+
+    let qs = '';
+
+    let y;
+
+    text.forEach((line) => {
+
+      qs = qs + line + "<br>";
+
+      y++;
+
+    })
+
+    span.textContent = qs;
+    
     modal.style.display = "block";
 
-    span.textContent = currentTest.test[elemId][1];
+   
 
   }
 
