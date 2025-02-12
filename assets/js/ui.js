@@ -562,7 +562,7 @@ document.addEventListener("click", function(event) {
 
       getErrorsArray();
 
-      //alert(wrongAnswers.errors[0])
+      alert(wrongAnswers.errors[0])
   
     }
 
