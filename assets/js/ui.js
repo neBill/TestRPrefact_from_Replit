@@ -80,6 +80,8 @@ function shuffle(arr) {
 
 function showErrors(id) {
 
+  alert(id)
+
   let indexes =  wrongAnswers.errors[id];
 
  
@@ -552,24 +554,36 @@ document.addEventListener("click", function(event) {
  
   let currentTestList = getTestList();
 
-  if(correctToggle.checked === true ) {
-
-    //alert(currentTest.id)
-
-    //currentTest.test = 
+  if(correctToggle.checked === true ) {   
 
     if (localStorage.getItem(currentTest.id)) {
 
+      currentTest.test = [];
+      wrongAnswers.errors = [];
+
       getErrorsArray();
 
-      alert(wrongAnswers.errors[0])
+        wrongAnswers.errors.forEach((q) => {
+
+        //alert(currentTestList[currentTest.id][0][q[0]])
+
+
+        currentTest.test.push(currentTestList[currentTest.id][0][q[0]])
+
+        //alert(q[0])
+      })
+
+
   
     }
 
+  } else {
+
+    currentTest.test = currentTestList[currentTest.id][0]
   }
 
   
-  currentTest.test = currentTestList[currentTest.id][0]
+  //currentTest.test = currentTestList[currentTest.id][0]
 
   if (isShuffle) {   
 
