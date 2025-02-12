@@ -743,17 +743,18 @@ document.addEventListener("click", function (event) {
   
     text.forEach((answer) => {
   
+
      
       const line = document.createElement('p');
-      line.textContent = `${i + 1}) ${answer[0]}`;
+      // line.textContent = `${i + 1}) ${answer[0]}`;
       line.id = i.toString();
-      line.className = "q-line";
+      line.className = "a-line";
+      line.innerHTML = '   ' + `${i + 1}) ${answer[0]}`;
 
       
       if(answer[1].toString() === "1")
-      {
-        
-        line.style.color = " #0079f2";
+      {        
+        line.innerHTML = '&#10004;   ' + `${i + 1}) ${answer[0]}`;
       }
 
       parrentBlock.appendChild(line);
