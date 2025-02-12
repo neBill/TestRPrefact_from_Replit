@@ -14,11 +14,11 @@ const divLavels = document.getElementById('levels');
   // document.getElementById('errors').innerHTML = "";
   // document.getElementById('test-title').innerHTML = "";
   // document.getElementById('results').style.display = "none";
-  const divTest = document.getElementById('test');
-  const btnMenu = document.getElementById('button_menu');
-  const headerBlock = document.getElementById('header_block');
-  const listBlock = document.getElementById('list-block');
-
+const divTest = document.getElementById('test');
+const btnMenu = document.getElementById('button_menu');
+const headerBlock = document.getElementById('header_block');
+const listBlock = document.getElementById('list-block');
+const correctToggle = document.getElementById('corrector');
 
 class CurrentTest {
    constructor(test, id) {
@@ -81,6 +81,8 @@ function shuffle(arr) {
 function showErrors(id) {
 
   let indexes =  wrongAnswers.errors[id];
+
+ 
 
   divTest.style.display = 'block';
 
@@ -546,9 +548,26 @@ document.addEventListener("click", function(event) {
 
   if(event.target.className !== "test_button") return;
 
-  currentTest.id = event.target.id;         
+  currentTest.id = event.target.id;   
  
   let currentTestList = getTestList();
+
+  if(correctToggle.checked === true ) {
+
+    //alert(currentTest.id)
+
+    //currentTest.test = 
+
+    if (localStorage.getItem(currentTest.id)) {
+
+      getErrorsArray();
+
+      //alert(wrongAnswers.errors[0])
+  
+    }
+
+  }
+
   
   currentTest.test = currentTestList[currentTest.id][0]
 
@@ -568,6 +587,9 @@ document.addEventListener("click", function(event) {
 
   currentIndex.index = getCurrentIndex(currentTest.id);
 
+
+  
+  //show choosen test page
   showChosenTest(event.target.textContent, currentTest.test.length); 
 
   updateQuestionBlock();

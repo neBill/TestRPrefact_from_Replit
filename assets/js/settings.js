@@ -8,6 +8,7 @@ const buttonsBlock = document.getElementById('levels');
 
 
 
+
 'use strict';
 
 function chageFontSize(buttonId){  
