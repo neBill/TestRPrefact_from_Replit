@@ -747,7 +747,15 @@ document.addEventListener("click", function (event) {
       const line = document.createElement('p');
       line.textContent = `${i + 1}) ${answer[0]}`;
       line.id = i.toString();
-      line.className = "q-line"
+      line.className = "q-line";
+
+      
+      if(answer[1].toString() === "1")
+      {
+        
+        line.style.color = " #0079f2";
+      }
+
       parrentBlock.appendChild(line);
       i++;
   
@@ -773,16 +781,10 @@ document.addEventListener("click", function (event) {
 // Get the modal
 var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
-
 // Get the <span> element that closes the modal
  var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-// btn.onclick = function() {
-//   modal.style.display = "block";
-// }
+
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
