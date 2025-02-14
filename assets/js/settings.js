@@ -85,6 +85,7 @@ window.addEventListener('load', function() {
   window.addEventListener('popstate', function() {
 
     //this.alert('close')
+    btnHome.click();
     window.history.pushState({}, '')
 });
 
