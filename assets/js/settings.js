@@ -58,11 +58,11 @@ function clearAllHistory() {
 
 }
 
-function clearCurrentHistory() {
+// function clearCurrentHistory() {
 
-  localStorage.removeItem(currentTest.id); 
+//   localStorage.removeItem(currentTest.id); 
 
-}
+// }
 
 
 
@@ -83,6 +83,8 @@ window.addEventListener('load', function() {
 });
   
   window.addEventListener('popstate', function() {
+
+    this.alert('close')
     window.history.pushState({}, '')
 });
 

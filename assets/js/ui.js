@@ -80,7 +80,7 @@ function shuffle(arr) {
 
 function showErrors(id) {
 
-  alert(id)
+ //alert(id)
 
   let indexes =  wrongAnswers.errors[id];
 
@@ -231,6 +231,8 @@ function showTestResult(isTestFinished) {
     state = 'завершен';
 
     questionQuantity = currentIndex.index + 1;
+
+    alert(questionQuantity)
 
   }
 
@@ -554,6 +556,9 @@ document.addEventListener("click", function(event) {
  
   let currentTestList = getTestList();
 
+  
+
+  //training mod
   if(correctToggle.checked === true ) {   
 
     if (localStorage.getItem(currentTest.id)) {
@@ -599,6 +604,7 @@ document.addEventListener("click", function(event) {
 
   }
 
+  //удаляется история теста если текущий индекс равен длине массива
   currentIndex.index = getCurrentIndex(currentTest.id);
 
 
