@@ -84,7 +84,7 @@ window.addEventListener('load', function() {
   
   window.addEventListener('popstate', function() {
 
-    this.alert('close')
+    //this.alert('close')
     window.history.pushState({}, '')
 });
 
