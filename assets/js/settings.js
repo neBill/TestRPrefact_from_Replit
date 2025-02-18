@@ -155,6 +155,7 @@ function getTestList() {
     ot6_2025 : [test_otrp, "ОT 2025"],
     ot6com_2025 : [test_otcom, "ОT 2025 ком"],
     econs : [econs, "ЭКОНС"],
+    ex6_plus : [test_6e_plus, "Старшие эксперт"],
     
    
   }
