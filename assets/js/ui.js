@@ -512,11 +512,13 @@ function getCurrentIndex(testId) {
 
       let ind = history.indexOf('$')
 
-      alert(history.substring(ind + 1))
+      //alert(history.substring(ind + 1))
 
       getErrorsArray()
 
       let currentTestList = getTestList();
+
+      currentTest.test = [];
 
       wrongAnswers.errors.forEach((q) => {
 
@@ -524,32 +526,36 @@ function getCurrentIndex(testId) {
 
         let qu = q.slice(0, q.indexOf(','))
 
-        alert(currentTestList[currentTest.id][qu])
+        //alert(currentTestList[currentTest.id][qu])
         // alert(currentTest.test[qu])
 
-        //currentTest.test.push(currentTestList[currentTest.id][0][q[0]])
+        currentTest.test.push(currentTestList[currentTest.id][q])
+       
 
       })
 
      // alert(wrongAnswers.errors.length)
 
-
+     alert(currentTest.test.length)
 
       removeTestHistory(testId);
 
-      
 
-      //alert(wrongAnswers.errors.length)
+    } else {
 
+      currentIndex = extractIndex(history)
     }
 
+      
+      //    currentIndex = extractIndex(history)
+      // }
 
 
-    if(extractIndex(history) < currentTest.test.length ) {
+    // if(extractIndex(history) < currentTest.test.length ) {
 
       
-       currentIndex = extractIndex(history)
-    }
+    //    currentIndex = extractIndex(history)
+    // }
 
 
   }
