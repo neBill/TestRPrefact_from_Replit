@@ -190,6 +190,8 @@ function setTrainingMode(optionIndex) {
 
 function calcRightAnswers(questionsQuantity, errorsQuantity ) {
 
+ // alert(questionsQuantity + " = " + errorsQuantity)
+
   let rightAnswersQuantity = Math.round(questionsQuantity - errorsQuantity);
 
   let percent = Math.round(rightAnswersQuantity * 100 / (questionsQuantity));
@@ -232,7 +234,7 @@ function showTestResult(isTestFinished) {
 
     questionQuantity = currentIndex.index + 1;
 
-    alert(questionQuantity)
+    //alert(questionQuantity)
 
   }
 
@@ -240,6 +242,8 @@ function showTestResult(isTestFinished) {
 
 
   const { rightAnswers, errorsPercent } = calcRightAnswers(questionQuantity, wrongAnswers.errors.length);
+
+  ///alert(rightAnswers)
 
 
   let success = '';
@@ -499,14 +503,51 @@ function getCurrentIndex(testId) {
 
     const history = getTestHistory(testId);   
 
+    //alert(history)
+
     if (extractIndex(history) === currentTest.test.length) {
+
+      
+      //showTestResult(true)
+
+      let ind = history.indexOf('$')
+
+      alert(history.substring(ind + 1))
+
+      getErrorsArray()
+
+      let currentTestList = getTestList();
+
+      wrongAnswers.errors.forEach((q) => {
+
+         
+
+        let qu = q.slice(0, q.indexOf(','))
+
+        alert(currentTestList[currentTest.id][qu])
+        // alert(currentTest.test[qu])
+
+        //currentTest.test.push(currentTestList[currentTest.id][0][q[0]])
+
+      })
+
+     // alert(wrongAnswers.errors.length)
+
+
 
       removeTestHistory(testId);
 
+      
+
+      //alert(wrongAnswers.errors.length)
+
     }
+
+
 
     if(extractIndex(history) < currentTest.test.length ) {
 
+      
        currentIndex = extractIndex(history)
     }
 
@@ -529,7 +570,11 @@ function extractIndex(history) {
 
 function getErrorsArray() {
 
+  
+
   let errors = localStorage.getItem(currentTest.id).split("$");
+
+  
 
   if (errors[1].length == 0) return;
 
@@ -543,6 +588,8 @@ function getErrorsArray() {
 
   });
 
+ // alert("-> " + wrongAnswers.errors.length)
+
 
 }
 
@@ -552,10 +599,13 @@ document.addEventListener("click", function(event) {
 
   if(event.target.className !== "test_button") return;
 
+  //alert('fffff')
+
   currentTest.id = event.target.id;   
  
   let currentTestList = getTestList();
 
+  //alert('fffff')
   
 
   //training mod
@@ -566,7 +616,11 @@ document.addEventListener("click", function(event) {
       currentTest.test = [];
       wrongAnswers.errors = [];
 
+      //alert("wrong = " + wrongAnswers.errors.length)
+
       getErrorsArray();
+
+     // alert("wrong = " + wrongAnswers.errors.length)
 
         wrongAnswers.errors.forEach((q) => {
 
