@@ -583,6 +583,7 @@ function chooseTest(testId) {
     e5 : test_5e,
     e6 : test_6e,
     ot : test_ot,
+    ot_2025 : test_otpir,
     econs : econs,
     ot_maxim : test_maxim,
     micro_5 : micro_5,
