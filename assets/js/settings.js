@@ -71,10 +71,12 @@ window.addEventListener("load", ()=>{
   loadSettings();  
 
 
-  const testList = getTestList(); 
+ // const testList = getTestList(); 
 
   
-  createTestButtons(testList);
+  //createTestButtons(testList);
+  createTestButtons();
+  
 });
 
 //лечение выхода из приложения при нажании кнопки назад в андроид
@@ -131,61 +133,78 @@ lev6Toggle.addEventListener('change', function() {
   
 });
 
-function getTestList() {  
 
-  const test5 = {
+
+const testList = {
    
-    st5_1 : [test_5s_block_1, "5p Стандарт 1"],
-    st5_2 : [test_5s_block_2, "5p Стандарт 2"],
-    ex5 : [test_5ex, "5р эксперт"],
-    ot_1 : [test_ot_block_1, "Охрана труда 1"],
-    ot_2 : [test_ot_block_2, "Охрана труда 2"],
-    ot5_2025 : [test_otrp, "ОT 2025"],
-    
+     test5 : { 
 
-  }   
-  
-  
-  const test6 = {
-       
-    st6_1 : [test_6s_block_1, "6p Стандарт 1"],
-    st6_2 : [test_6s_block_2, "6p Стандарт 2"],
-    st6_3 : [test_6s_block_3, "6p Стандарт 3"],
-    st6_4 : [test_6s_block_4, "6p Стандарт 4"],
-    ex6 : [test_6e_block_1, "6р Эксперт"],
-    ot_1 : [test_ot_block_1, "Охрана труда 1"],
-    ot_2 : [test_ot_block_2, "Охрана труда 2"],
-    ot6_2025 : [test_otrp, "ОT 2025"],
-    tmp : [temp, "TEMP"],
-   
-  }
+      st5_1 : [test_5s_block_1, "5p Стандарт 1"],
+      st5_2 : [test_5s_block_2, "5p Стандарт 2"],
+      ex5 : [test_5ex, "5р эксперт"],
+      ot_1 : [test_ot_block_1, "Охрана труда 1"],
+      ot_2 : [test_ot_block_2, "Охрана труда 2"],
+      ot5_2025 : [test_otrp, "ОT 2025"],
 
-  if(isTest6) {      
-    return test6;    
-  }
-  else {  
-    return test5;
-  }
-
-  
-
+    },    
+        
+    test6 : {
+         
+      st6_1 : [test_6s_block_1, "6p Стандарт 1"],
+      st6_2 : [test_6s_block_2, "6p Стандарт 2"],
+      st6_3 : [test_6s_block_3, "6p Стандарт 3"],
+      st6_4 : [test_6s_block_4, "6p Стандарт 4"],
+      ex6 : [test_6e_block_1, "6р Эксперт"],
+      ot_1 : [test_ot_block_1, "Охрана труда 1"],
+      ot_2 : [test_ot_block_2, "Охрана труда 2"],
+      ot6_2025 : [test_otrp, "ОT 2025"],
+      tmp : [temp, "TEMP"],
+     
+    },
 }
 
-function createTestButtons(testList){
-    
-    for(let testId in testList){
 
-      const testButton = document.createElement('button');
+  
 
-      testButton.id = testId;
 
-      testButton.className = "test_button";
 
-      testButton.textContent = testList[testId][1];
+function createTestButtons(){ 
 
-      buttonsBlock.appendChild(testButton);
+  let testsLavel = isTest6 ? testList.test6 : testList.test5;
 
-    }
+  Object.keys(testsLavel).forEach(key => {
+
+    const testButton = document.createElement('button');
+
+    testButton.id = key;
+
+    testButton.className = "test_button";
+
+    testButton.textContent = testsLavel[key][1]
+
+    buttonsBlock.appendChild(testButton);
+
+
+  });
+
+
+ //alert(testsLavel)
+
+  // for(let testId in testsLavel){
+
+  //   //alert(testId[0])
+
+  //   // const testButton = document.createElement('button');
+
+  //   // testButton.id = testId;
+
+  //   // testButton.className = "test_button";
+
+  //   // testButton.textContent = testList[testId][1];
+
+  //   // buttonsBlock.appendChild(testButton);
+
+  // }
 
 }
 
@@ -221,9 +240,9 @@ function showHideMenu() {
 
     removeButtons();
 
-    const testList = getTestList();
+    //const testList = getTestList();
 
-    createTestButtons(testList);
+    createTestButtons();
   }
   
   

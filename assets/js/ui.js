@@ -501,49 +501,54 @@ function getCurrentIndex(testId) {
 
   if(testId in localStorage) {
 
-    const history = getTestHistory(testId);   
+    //get array of mistakes from storage
+    const errorsHistory = getTestHistory(testId);   
 
     //alert(history)
 
-    if (extractIndex(history) === currentTest.test.length) {
+    if (extractIndex(errorsHistory) === currentTest.test.length) {
 
       
       //showTestResult(true)
 
-      let ind = history.indexOf('$')
+      let ind = errorsHistory.indexOf('$')
 
       //alert(history.substring(ind + 1))
 
       getErrorsArray()
 
-      let currentTestList = getTestList();
+      //let currentTestList = getTestList();
 
       currentTest.test = [];
 
       wrongAnswers.errors.forEach((q) => {
 
-         
+        // alert(q)
 
-        let qu = q.slice(0, q.indexOf(','))
+       // let qu = q.slice(0, q.indexOf(','))
 
-        //alert(currentTestList[currentTest.id][qu])
-        // alert(currentTest.test[qu])
+        //alert(currentTestList[currentTest.id][q])
+        //lert(currentTest.test[qu])
 
-        currentTest.test.push(currentTestList[currentTest.id][q])
+        //currentTest.test.push(testsLavel[currentTest.id][0][q])
+
+        //currentTest.test = testsLavel[currentTest.id][0]
        
 
       })
 
      // alert(wrongAnswers.errors.length)
 
-     alert(currentTest.test.length)
+      //alert(currentTest.test.length)
 
       removeTestHistory(testId);
 
 
     } else {
 
-      currentIndex = extractIndex(history)
+      currentIndex = extractIndex(errorsHistory)
+
+      //alert(extractIndex(history))
     }
 
       
@@ -609,7 +614,7 @@ document.addEventListener("click", function(event) {
 
   currentTest.id = event.target.id;   
  
-  let currentTestList = getTestList();
+  //let currentTestList = getTestList();
 
   //alert('fffff')
   
@@ -644,7 +649,13 @@ document.addEventListener("click", function(event) {
 
   } else {
 
-    currentTest.test = currentTestList[currentTest.id][0]
+   // currentTest.test = currentTest.id[0]
+      
+      let testsLavel = isTest6 ? testList.test6 : testList.test5;
+
+      //alert(testsLavel[currentTest.id][0])
+      currentTest.test = testsLavel[currentTest.id][0]
+
   }
 
   
