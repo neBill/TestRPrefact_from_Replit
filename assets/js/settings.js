@@ -101,13 +101,17 @@ lev5Toggle.addEventListener('change', function() {
 
     lev6Toggle.checked = false;
 
-    isTest6 = false;
+    //isTest6 = false;
+
+    testsLavel = testList.test6;
 
   }else{
 
     lev6Toggle.checked = true;
 
-    isTest6 = true;
+    //isTest6 = true;
+    testsLavel = testList.test5;
+
   }
 
   
@@ -121,13 +125,15 @@ lev6Toggle.addEventListener('change', function() {
 
     lev5Toggle.checked = false;
 
-    isTest6 = true;
+    //isTest6 = true;
+    testsLavel = testList.test6;
 
   }else{
 
     lev5Toggle.checked = true;
 
-    isTest6 = false;
+    //isTest6 = false;
+    testsLavel = testList.test5;
   }
 
   
@@ -170,7 +176,9 @@ const testList = {
 
 function createTestButtons(){ 
 
-  let testsLavel = isTest6 ? testList.test6 : testList.test5;
+  // let testsLavel = isTest6 ? testList.test6 : testList.test5;
+
+  alert(testsLavel)
 
   Object.keys(testsLavel).forEach(key => {
 

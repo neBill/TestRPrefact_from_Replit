@@ -6,7 +6,9 @@ let historyIndex;
 let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
-let isTest6 = true;
+// let isTest6 = true;
+let testsLavel = testList.test6; 
+
 
 const btnHome = document.getElementById('button_home');
 const navBlock = document.getElementById('nav_block');
@@ -653,7 +655,7 @@ document.addEventListener("click", function(event) {
       
       let testsLavel = isTest6 ? testList.test6 : testList.test5;
 
-      //alert(testsLavel[currentTest.id][0])
+      //alert('yf')
       currentTest.test = testsLavel[currentTest.id][0]
 
   }
