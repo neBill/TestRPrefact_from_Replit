@@ -7,7 +7,8 @@ let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
 // let isTest6 = true;
-let testsLavel = testList.test6; 
+let defaultRank = 'rank6';
+
 
 
 const btnHome = document.getElementById('button_home');

@@ -72,7 +72,9 @@ window.addEventListener("load", ()=>{
 
 
  // const testList = getTestList(); 
+ // defaultRank = testList[key]; 
 
+ // alert(defaultRank)
   
   //createTestButtons(testList);
   createTestButtons();
@@ -84,7 +86,7 @@ window.addEventListener('load', function() {
     window.history.pushState({}, '')
 });
   
-  window.addEventListener('popstate', function() {
+window.addEventListener('popstate', function() {
 
     //this.alert('close')
     btnHome.click();
@@ -141,9 +143,9 @@ lev6Toggle.addEventListener('change', function() {
 
 
 
-const testList = {
+const testsList = {
    
-     test5 : { 
+     rank5 : { 
 
       st5_1 : [test_5s_block_1, "5p Стандарт 1"],
       st5_2 : [test_5s_block_2, "5p Стандарт 2"],
@@ -154,7 +156,7 @@ const testList = {
 
     },    
         
-    test6 : {
+    rank6 : {
          
       st6_1 : [test_6s_block_1, "6p Стандарт 1"],
       st6_2 : [test_6s_block_2, "6p Стандарт 2"],
@@ -178,9 +180,20 @@ function createTestButtons(){
 
   // let testsLavel = isTest6 ? testList.test6 : testList.test5;
 
-  alert(testsLavel)
+ 
 
-  Object.keys(testsLavel).forEach(key => {
+  //alert(Object.keys(testsList)['rank6'])
+
+  //const property = 'rank6';
+
+  //alert(testsList[property.st6_1])
+
+
+
+
+  Object.keys(testsList.rank6).forEach(key => {
+
+    //alert(testsList.rank6[key][1])
 
     const testButton = document.createElement('button');
 
@@ -188,7 +201,7 @@ function createTestButtons(){
 
     testButton.className = "test_button";
 
-    testButton.textContent = testsLavel[key][1]
+    testButton.textContent = testsList.rank6[key][1]
 
     buttonsBlock.appendChild(testButton);
 
