@@ -67,52 +67,43 @@ function clearAllHistory() {
 
 
 window.addEventListener("load", ()=>{  
+
   document.body.className = 'light-theme';  
+
   loadSettings();  
 
-
- // const testList = getTestList(); 
- // defaultRank = testList[key]; 
-
- // alert(defaultRank)
-  
-  //createTestButtons(testList);
   createTestButtons();
   
 });
 
 //лечение выхода из приложения при нажании кнопки назад в андроид
 window.addEventListener('load', function() {
+
     window.history.pushState({}, '')
 });
   
 window.addEventListener('popstate', function() {
-
-    //this.alert('close')
+   
     btnHome.click();
+    
     window.history.pushState({}, '')
 });
 
 
 
 lev5Toggle.addEventListener('change', function() {
-
-  let toggleState = lev5Toggle.checked;
-
-  if(toggleState === true){
+  
+  if(lev5Toggle.checked === true){
 
     lev6Toggle.checked = false;
 
-    //isTest6 = false;
-
-    testsLavel = testList.test6;
+    defaultRank = 'rank5';
 
   }else{
 
     lev6Toggle.checked = true;
 
-    //isTest6 = true;
-    testsLavel = testList.test5;
+    defaultRank = 'rank6';
 
   }
 
@@ -121,25 +112,55 @@ lev5Toggle.addEventListener('change', function() {
 
 lev6Toggle.addEventListener('change', function() {
 
-  let toggleState = lev6Toggle.checked;
-
-  if(toggleState === true){
+  if(lev6Toggle.checked === true){
 
     lev5Toggle.checked = false;
 
-    //isTest6 = true;
-    testsLavel = testList.test6;
+    defaultRank = 'rank6';
 
   }else{
 
     lev5Toggle.checked = true;
 
-    //isTest6 = false;
-    testsLavel = testList.test5;
+    defaultRank = 'rank5';
   }
-
   
 });
+
+
+
+// document.addEventListener('click', function(event) {
+
+//   if(event.target.className === 'Toggle__input toggle-rank') {
+
+//       //let testsLavel = isTest6 ? testList.test6 : testList.test5;
+
+//       let toggleState = lev6Toggle.checked;
+
+//       alert(toggleState)
+
+//       if(toggleState === true){
+
+//         lev5Toggle.checked = false; 
+//         lev6Toggle.checked = true;       
+
+//         // testsLavel = testList.test6;
+
+//       }else{
+
+//         lev5Toggle.checked = true;
+//         lev6Toggle.checked = false;
+
+//         //isTest6 = true;
+//         // testsLavel = testList.test5;
+//       }
+
+//    }
+    
+ 
+  
+// });
+
 
 
 
@@ -178,22 +199,8 @@ const testsList = {
 
 function createTestButtons(){ 
 
-  // let testsLavel = isTest6 ? testList.test6 : testList.test5;
-
- 
-
-  //alert(Object.keys(testsList)['rank6'])
-
-  //const property = 'rank6';
-
-  //alert(testsList[property.st6_1])
-
-
-
-
-  Object.keys(testsList.rank6).forEach(key => {
-
-    //alert(testsList.rank6[key][1])
+  
+  Object.keys(testsList[defaultRank]).forEach(key => {
 
     const testButton = document.createElement('button');
 
@@ -201,7 +208,7 @@ function createTestButtons(){
 
     testButton.className = "test_button";
 
-    testButton.textContent = testsList.rank6[key][1]
+    testButton.textContent = testsList[defaultRank][key][1]
 
     buttonsBlock.appendChild(testButton);
 
@@ -304,21 +311,21 @@ function apply(togglesState){
 
   learnmodeToggle.checked = togglesState.isLearn;
 
-  lev6Toggle.checked = togglesState.isTest6;
+  //lev6Toggle.checked = togglesState.isTest6;
 
-  if(togglesState.isTest6 === true) {
+  // if(togglesState.isTest6 === true) {
 
-    lev6Toggle.checked = true;
+  //   lev6Toggle.checked = true;
 
-    isTest6 = true;
+  //   isTest6 = true;
 
-  }else{
+  // }else{
 
-    lev5Toggle.checked = true;
+  //   lev5Toggle.checked = true;
 
-    isTest6 = false;
+  //   isTest6 = false;
 
-  }  
+  // }  
 
   isLearnMode = togglesState.isLearn;
 
@@ -344,7 +351,7 @@ function saveSettings(){
     isLearn : learnmodeToggle.checked,
     isShuffle : shuffleToggle.checked,
     isDarkTheme : themeToggle.checked,
-    isTest6 : lev6Toggle.checked,
+    // isTest6 : lev6Toggle.checked,
   }
 
   apply(togglesState);
