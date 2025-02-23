@@ -45,14 +45,15 @@ function chageFontSize(buttonId){
 
 
 
-function clearCaches(){  
-  // caches.open('s-app-v1').then(cache => {
-  //   cache.keys().then(keys => {
-  //     keys.forEach(request => {
-  //       cache.delete(request);
-  //     });
-  //   });
-  // });
+function clearCaches(){   
+
+  caches.open('s-app-v1').then(cache => {
+    cache.keys().then(keys => {
+      keys.forEach(request => {
+        cache.delete(request);
+      });
+    });
+  });
 }
 
 function clearAllHistory() {
@@ -131,6 +132,9 @@ const testsList = {
 
 
 function createTestButtons(){ 
+
+
+  //alert(defaultRank)
   
   Object.keys(testsList[defaultRank]).forEach(key => {
 
@@ -165,7 +169,7 @@ function showHistoryDropdown(){
 
 function showHideMenu() { 
 
-  let display = window.getComputedStyle(ddMenu).display;
+  let display = window.getComputedStyle(divDropdownMenu).display;
 
   if(display === "none")
   {
@@ -225,16 +229,18 @@ function apply(togglesState){
 
   isShuffle = togglesState.isShuffle;
 
-  if (togglesState.isDarkTheme == true) { 
+  togglesState.isDarkTheme == true  ? document.body.className = 'dark-theme' : document.body.className = 'light-theme';
 
-    document.body.className = 'dark-theme';
+  // if (togglesState.isDarkTheme == true) { 
 
-  }
-  else {  
+  //   document.body.className = 'dark-theme';
 
-    document.body.className = 'light-theme';
+  // }
+  // else {  
 
-  }
+  //   document.body.className = 'light-theme';
+
+  // }
 
 }
 

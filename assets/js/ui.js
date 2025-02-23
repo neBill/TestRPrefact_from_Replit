@@ -7,7 +7,7 @@ let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
 
-let defaultRank;
+let defaultRank = 'rank6';
 
 
 
