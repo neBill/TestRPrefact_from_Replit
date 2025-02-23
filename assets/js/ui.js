@@ -6,8 +6,8 @@ let historyIndex;
 let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
-// let isTest6 = true;
-let defaultRank = 'rank5';
+
+let defaultRank;
 
 
 
@@ -656,8 +656,8 @@ document.addEventListener("click", function(event) {
       
      // let testsLavel = isTest6 ? testList.test6 : testList.test5;
 
-      //alert('yf')
-      currentTest.test = testsLavel[currentTest.id][0]
+      //alert(testsList[defaultRank][currentTest.id][0])
+      currentTest.test = testsList[defaultRank][currentTest.id][0];
 
   }
 

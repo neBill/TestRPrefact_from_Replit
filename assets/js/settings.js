@@ -3,8 +3,11 @@ const lev6Toggle = document.getElementById('lev6');
 const themeToggle =  document.getElementById('theme'); 
 const shuffleToggle = document.getElementById('shuffle');
 const learnmodeToggle = document.getElementById('learn_mode');
-const helpBlock = document.getElementById("help_block");
-const buttonsBlock = document.getElementById('levels');
+const divDropdownMenu = document.getElementById("drop-down-menu");
+
+const divHelp = document.getElementById("help_block");
+
+const divTestsButtons = document.getElementById('levels');
 
 
 
@@ -58,13 +61,6 @@ function clearAllHistory() {
 
 }
 
-// function clearCurrentHistory() {
-
-//   localStorage.removeItem(currentTest.id); 
-
-// }
-
-
 
 window.addEventListener("load", ()=>{  
 
@@ -91,76 +87,17 @@ window.addEventListener('popstate', function() {
 
 
 
-lev5Toggle.addEventListener('change', function() {
-  
-  if(lev5Toggle.checked === true){
+lev5Toggle.addEventListener('change', function() {   
 
-    lev6Toggle.checked = false;
-
-    defaultRank = 'rank5';
-
-  }else{
-
-    lev6Toggle.checked = true;
-
-    defaultRank = 'rank6';
-
-  }
-
+  setToggleState('rank5')
   
 });
 
-lev6Toggle.addEventListener('change', function() {
+lev6Toggle.addEventListener('change', function() {  
 
-  if(lev6Toggle.checked === true){
-
-    lev5Toggle.checked = false;
-
-    defaultRank = 'rank6';
-
-  }else{
-
-    lev5Toggle.checked = true;
-
-    defaultRank = 'rank5';
-  }
+  setToggleState('rank6')
   
 });
-
-
-
-// document.addEventListener('click', function(event) {
-
-//   if(event.target.className === 'Toggle__input toggle-rank') {
-
-//       //let testsLavel = isTest6 ? testList.test6 : testList.test5;
-
-//       let toggleState = lev6Toggle.checked;
-
-//       alert(toggleState)
-
-//       if(toggleState === true){
-
-//         lev5Toggle.checked = false; 
-//         lev6Toggle.checked = true;       
-
-//         // testsLavel = testList.test6;
-
-//       }else{
-
-//         lev5Toggle.checked = true;
-//         lev6Toggle.checked = false;
-
-//         //isTest6 = true;
-//         // testsLavel = testList.test5;
-//       }
-
-//    }
-    
- 
-  
-// });
-
 
 
 
@@ -193,12 +130,7 @@ const testsList = {
 }
 
 
-  
-
-
-
 function createTestButtons(){ 
-
   
   Object.keys(testsList[defaultRank]).forEach(key => {
 
@@ -210,35 +142,16 @@ function createTestButtons(){
 
     testButton.textContent = testsList[defaultRank][key][1]
 
-    buttonsBlock.appendChild(testButton);
+    divTestsButtons.appendChild(testButton);
 
 
   });
-
-
- //alert(testsLavel)
-
-  // for(let testId in testsLavel){
-
-  //   //alert(testId[0])
-
-  //   // const testButton = document.createElement('button');
-
-  //   // testButton.id = testId;
-
-  //   // testButton.className = "test_button";
-
-  //   // testButton.textContent = testList[testId][1];
-
-  //   // buttonsBlock.appendChild(testButton);
-
-  // }
 
 }
 
 function removeButtons() {
     
-  buttonsBlock.innerHTML = '';
+  divTestsButtons.innerHTML = '';
   
 }
 
@@ -250,42 +163,37 @@ function showHistoryDropdown(){
 }
 
 
-function showHideMenu() {
-
-  const ddMenu = document.getElementById("dropDownMenu");
+function showHideMenu() { 
 
   let display = window.getComputedStyle(ddMenu).display;
 
   if(display === "none")
   {
-      ddMenu.style.display = "block";
-  }
-  else {
+    divDropdownMenu.style.display = "block";
+  } else {
 
-    ddMenu.style.display = "none";
+    divDropdownMenu.style.display = "none";
 
     saveSettings();      
 
-    removeButtons();
-
-    //const testList = getTestList();
+    removeButtons();    
 
     createTestButtons();
-  }
-  
+
+  }  
   
 }
 
 
 function hideHelpPage() {
 
-  helpBlock.style.display = "none";  
+  divHelp.style.display = "none";  
 
 }
 
 function showHelpPage() {
 
-  helpBlock.style.display = "block"; 
+  divHelp.style.display = "block"; 
 
   showHideMenu();
 
@@ -311,22 +219,8 @@ function apply(togglesState){
 
   learnmodeToggle.checked = togglesState.isLearn;
 
-  //lev6Toggle.checked = togglesState.isTest6;
-
-  // if(togglesState.isTest6 === true) {
-
-  //   lev6Toggle.checked = true;
-
-  //   isTest6 = true;
-
-  // }else{
-
-  //   lev5Toggle.checked = true;
-
-  //   isTest6 = false;
-
-  // }  
-
+  defaultRank = togglesState.defRank;
+ 
   isLearnMode = togglesState.isLearn;
 
   isShuffle = togglesState.isShuffle;
@@ -351,11 +245,30 @@ function saveSettings(){
     isLearn : learnmodeToggle.checked,
     isShuffle : shuffleToggle.checked,
     isDarkTheme : themeToggle.checked,
-    // isTest6 : lev6Toggle.checked,
+    defRank : defaultRank,
   }
 
   apply(togglesState);
 
   localStorage.setItem("settings", JSON.stringify(togglesState));
+}
+
+
+function setToggleState(rank){
+
+  if(rank === 'rank6') {
+
+    lev6Toggle.checked = true;
+    lev5Toggle.checked = false;    
+
+  }else{
+
+    lev5Toggle.checked = true;
+    lev6Toggle.checked = false;
+    
+  }  
+
+  defaultRank = rank;
+
 }
 
