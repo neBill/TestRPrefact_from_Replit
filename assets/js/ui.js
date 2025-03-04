@@ -584,7 +584,7 @@ function chooseTest(testId) {
     micro_5 : micro_5,
     micro_6 : micro_6,
     temp_test : test, 
-    ot_25 : test_otgid,
+    
   }
   return testList[testId];
 }
