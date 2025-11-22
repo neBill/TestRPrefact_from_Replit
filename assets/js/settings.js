@@ -138,7 +138,7 @@ function getTestList() {
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
     ot5_2025 : [test_otrp, "ОT 2025"],
     econs : [econs, "ЭКОНС"],
-    
+    base_26 : [test_base26, "База 2026"],    
 
   }   
   
@@ -156,6 +156,7 @@ function getTestList() {
     ot6com_2025 : [test_otcom, "ОT 2025 ком"],
     econs : [econs, "ЭКОНС"],
     ex6_plus : [test_6e_plus, "Старшие эксперт"],
+    base_26 : [test_base26, "База 2026"],
     
    
   }
