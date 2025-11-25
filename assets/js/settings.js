@@ -99,7 +99,7 @@ lev5Toggle.addEventListener('change', function() {
     base26Toggle.checked = false;
     
 
-    isTest6 = false;
+    defaultTest = test5;
 
   }
   
@@ -109,7 +109,7 @@ lev5Toggle.addEventListener('change', function() {
     // base26Toggle.checked = true;
     // lev6Toggle.checked = true;
 
-    isTest6 = true;
+    //isTest6 = true;
   }
 
   
@@ -124,7 +124,7 @@ lev6Toggle.addEventListener('change', function() {
     lev5Toggle.checked = false;
     base26Toggle.checked = false;
 
-    isTest6 = true;
+    defaultTest = test6;
 
   }else{
 
@@ -133,7 +133,7 @@ lev6Toggle.addEventListener('change', function() {
 
     lev6Toggle.checked = true;
 
-    isTest6 = false;
+   // isTest6 = false;
   }
 
   
@@ -157,7 +157,7 @@ base26Toggle.addEventListener('change', function() {
 
     base26Toggle.checked = true;
 
-    isTest6 = false;
+    defaultTest = base26;
   }
 
   
@@ -197,10 +197,11 @@ function getTestList() {
    
   }
 
-  if(isTest6) {      
+  if(test6) {      
     return test6;    
   }
-  else {  
+  else if(test5){ 
+
     return test5;
   }
 
@@ -301,19 +302,19 @@ function apply(togglesState){
 
   learnmodeToggle.checked = togglesState.isLearn;
 
-  lev6Toggle.checked = togglesState.isTest6;
+  lev6Toggle.checked = togglesState.defaultTest;
 
-  if(togglesState.isTest6 === true) {
+  if(togglesState.defaultTest === test6) {
 
     lev6Toggle.checked = true;
 
-    isTest6 = true;
+    defaultTest = test6;
 
-  }else{
+  }else if(togglesState.defaultTest === test5){
 
     lev5Toggle.checked = true;
 
-    isTest6 = false;
+    defaultTest = test5;
 
   }  
 
@@ -341,7 +342,7 @@ function saveSettings(){
     isLearn : learnmodeToggle.checked,
     isShuffle : shuffleToggle.checked,
     isDarkTheme : themeToggle.checked,
-    isTest6 : lev6Toggle.checked,
+    // defaultTest : defaultTest,
   }
 
   apply(togglesState);
