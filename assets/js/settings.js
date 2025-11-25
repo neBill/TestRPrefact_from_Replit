@@ -5,6 +5,8 @@ const shuffleToggle = document.getElementById('shuffle');
 const learnmodeToggle = document.getElementById('learn_mode');
 const helpBlock = document.getElementById("help_block");
 const buttonsBlock = document.getElementById('levels');
+const base26Toggle = document.getElementById('base26');
+
 
 
 
@@ -94,12 +96,18 @@ lev5Toggle.addEventListener('change', function() {
   if(toggleState === true){
 
     lev6Toggle.checked = false;
+    base26Toggle.checked = false;
+    
 
     isTest6 = false;
 
-  }else{
+  }
+  
+  else{
 
-    lev6Toggle.checked = true;
+    lev5Toggle.checked = true;
+    // base26Toggle.checked = true;
+    // lev6Toggle.checked = true;
 
     isTest6 = true;
   }
@@ -114,12 +122,40 @@ lev6Toggle.addEventListener('change', function() {
   if(toggleState === true){
 
     lev5Toggle.checked = false;
+    base26Toggle.checked = false;
 
     isTest6 = true;
 
   }else{
 
-    lev5Toggle.checked = true;
+    // lev5Toggle.checked = true;
+    // base26Toggle.checked = true;
+
+    lev6Toggle.checked = true;
+
+    isTest6 = false;
+  }
+
+  
+});
+
+base26Toggle.addEventListener('change', function() {
+
+  let toggleState = base26Toggle.checked;
+
+  if(toggleState === true){
+
+    lev5Toggle.checked = false;
+    lev6Toggle.checked = false;
+
+    isTest6 = true;
+
+  }else{
+
+    // lev5Toggle.checked = true;
+    // lev6Toggle.checked = true;
+
+    base26Toggle.checked = true;
 
     isTest6 = false;
   }
@@ -138,7 +174,7 @@ function getTestList() {
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
     ot5_2025 : [test_otrp, "ОT 2025"],
     econs : [econs, "ЭКОНС"],
-    base_26 : [test_base26, "База 2026"],    
+    // base_26 : [test_base26, "База 2026"],    
 
   }   
   
@@ -156,7 +192,7 @@ function getTestList() {
     ot6com_2025 : [test_otcom, "ОT 2025 ком"],
     econs : [econs, "ЭКОНС"],
     ex6_plus : [test_6e_plus, "Старшие эксперт"],
-    base_26 : [test_base26, "База 2026"],
+    // base_26 : [test_base26, "База 2026"],
     
    
   }

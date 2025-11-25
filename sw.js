@@ -12,7 +12,7 @@ const assets = [
   '/assets/js/st6.js',
   '/assets/js/ex6.js',
   '/assets/js/ex5.js',
-  '/assets/js/base26.js',
+//   '/assets/js/base26.js',
   '/assets/images/logo-192x192.png',
   '/assets/images/logo-512x512.png',
   '/assets/images/maskable_icon.png', 
