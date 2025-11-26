@@ -69,10 +69,15 @@ function clearCurrentHistory() {
 
 window.addEventListener("load", ()=>{  
   document.body.className = 'light-theme';  
+
+  //alert(defaultTest)
+
   loadSettings();  
 
 
   const testList = getTestList(); 
+
+  //alert(testList[0])
 
   
   createTestButtons(testList);
@@ -148,7 +153,7 @@ base26Toggle.addEventListener('change', function() {
     lev5Toggle.checked = false;
     lev6Toggle.checked = false;
 
-    isTest6 = true;
+    defaultTest = 'base26';
 
   }else{
 
@@ -157,7 +162,7 @@ base26Toggle.addEventListener('change', function() {
 
     base26Toggle.checked = true;
 
-    defaultTest = 'base26';
+    //defaultTest = 'base26';
   }
 
   
@@ -174,7 +179,7 @@ function getTestList() {
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
     ot5_2025 : [test_otrp, "ОT 2025"],
     econs : [econs, "ЭКОНС"],
-    // base_26 : [test_base26, "База 2026"],    
+    //base_26 : [test_base26, "Нтрп 2026"],    
 
   }   
   
@@ -192,7 +197,16 @@ function getTestList() {
     ot6com_2025 : [test_otcom, "ОT 2025 ком"],
     econs : [econs, "ЭКОНС"],
     ex6_plus : [test_6e_plus, "Старшие эксперт"],
-    // base_26 : [test_base26, "База 2026"],
+    //base_26 : [test_base26, "Нтрп 2026"],
+    
+   
+  }
+
+
+  const base26 = {
+       
+    
+    base_26 : [test_base26, "Нтрп 2026"],
     
    
   }
@@ -204,9 +218,13 @@ function getTestList() {
   if(defaultTest === 'test6') {      
     return test6;    
   }
-  else if(defaultTest === 'test5'){ 
+  if(defaultTest === 'test5'){ 
 
     return test5;
+  }
+  if(defaultTest === 'base26'){ 
+
+    return base26;
   }
 
   
@@ -265,6 +283,8 @@ function showHideMenu() {
 
     const testList = getTestList();
 
+
+
     createTestButtons(testList);
   }
   
@@ -290,15 +310,26 @@ function showHelpPage() {
 
 function loadSettings(){
 
-  if(!localStorage.getItem('settings'))  return
+  if(!localStorage.getItem('settings')) 
+  {
+    defaultTest = 'test6'
+    
+    return
+  }else{
 
-  let togglesState = JSON.parse(localStorage.getItem('settings'));  
+    lev6Toggle.checked = false;
 
-  apply(togglesState);
+    let togglesState = JSON.parse(localStorage.getItem('settings'));  
+
+    apply(togglesState);
+
+  }
 
 }
 
 function apply(togglesState){    
+
+  // lev6Toggle.checked = false;
 
   themeToggle.checked = togglesState.isDarkTheme; 
   
@@ -306,21 +337,31 @@ function apply(togglesState){
 
   learnmodeToggle.checked = togglesState.isLearn;
 
-  lev6Toggle.checked = togglesState.defaultTest;
+  defaultTest = togglesState.defaultTest;
 
-  if(togglesState.defaultTest === 'test6') {
+  //alert(defaultTest)
+
+  if(defaultTest === 'test6') {
 
     lev6Toggle.checked = true;
 
-    defaultTest = 'test6';
+    //defaultTest = 'test6';
 
-  }else if(togglesState.defaultTest === 'test5'){
+  }
+  if(defaultTest === 'test5'){
 
     lev5Toggle.checked = true;
 
-    defaultTest = 'test5';
+    //defaultTest = 'test5';
 
-  }  
+  } 
+  if(defaultTest === 'base26'){
+
+    base26Toggle.checked = true;
+
+    //defaultTest = 'base26';
+
+  } 
 
   isLearnMode = togglesState.isLearn;
 
@@ -340,6 +381,8 @@ function apply(togglesState){
 }
 
 function saveSettings(){  
+
+  
 
   const togglesState = {
   

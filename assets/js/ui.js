@@ -6,7 +6,7 @@ let historyIndex;
 let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
-let defaultTest = 'test6';
+let defaultTest;
 
 const btnHome = document.getElementById('button_home');
 const navBlock = document.getElementById('nav_block');
