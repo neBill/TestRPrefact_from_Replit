@@ -206,7 +206,7 @@ function getTestList() {
   const base26 = {
        
     
-    base_26 : [test_base26, "Нтрп 2026"],
+    hb : [test_hb, "ХБ"],
     
    
   }
