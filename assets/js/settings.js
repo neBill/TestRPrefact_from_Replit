@@ -70,17 +70,17 @@ function clearCurrentHistory() {
 window.addEventListener("load", ()=>{  
   document.body.className = 'light-theme';  
 
-  //alert(defaultTest)
+ 
 
   loadSettings();  
 
+   
+
 
   const testList = getTestList(); 
-
-  //alert(testList[0])
-
   
   createTestButtons(testList);
+
 });
 
 //лечение выхода из приложения при нажании кнопки назад в андроид
@@ -101,7 +101,7 @@ lev5Toggle.addEventListener('change', function() {
   if(toggleState === true){
 
     lev6Toggle.checked = false;
-    base26Toggle.checked = false;
+    base2026Toggle.checked = false;
     
 
     defaultTest = 'test5';
@@ -111,10 +111,7 @@ lev5Toggle.addEventListener('change', function() {
   else{
 
     lev5Toggle.checked = true;
-    // base26Toggle.checked = true;
-    // lev6Toggle.checked = true;
-
-    //isTest6 = true;
+   
   }
 
   
@@ -127,18 +124,14 @@ lev6Toggle.addEventListener('change', function() {
   if(toggleState === true){
 
     lev5Toggle.checked = false;
-    base26Toggle.checked = false;
+    base2026Toggle.checked = false;
 
     defaultTest = 'test6';
 
   }else{
 
-    // lev5Toggle.checked = true;
-    // base26Toggle.checked = true;
-
     lev6Toggle.checked = true;
-
-   // isTest6 = false;
+  
   }
 
   
@@ -146,7 +139,7 @@ lev6Toggle.addEventListener('change', function() {
 
 base2026Toggle.addEventListener('change', function() {
 
-  let toggleState = base26Toggle.checked;
+  let toggleState = base2026Toggle.checked;
 
   if(toggleState === true){
 
@@ -157,12 +150,8 @@ base2026Toggle.addEventListener('change', function() {
 
   }else{
 
-    // lev5Toggle.checked = true;
-    // lev6Toggle.checked = true;
+    base2026Toggle.checked = true;
 
-    base26Toggle.checked = true;
-
-    //defaultTest = 'base26';
   }
 
   
@@ -178,8 +167,7 @@ function getTestList() {
     ot_1 : [test_ot_block_1, "Охрана труда 1"],
     ot_2 : [test_ot_block_2, "Охрана труда 2"],
     ot5_2025 : [test_otrp, "ОT 2025"],
-    econs : [econs, "ЭКОНС"],
-    //base_26 : [test_base26, "Нтрп 2026"],    
+    econs : [econs, "ЭКОНС"],        
 
   }   
   
@@ -197,26 +185,31 @@ function getTestList() {
     ot6com_2025 : [test_otcom, "ОT 2025 ком"],
     econs : [econs, "ЭКОНС"],
     ex6_plus : [test_6e_plus, "Старшие эксперт"],
-    //base_26 : [test_base26, "Нтрп 2026"],
-    
    
   }
 
 
-  const base26 = {
-       
+  const base26 = {       
     
     hb : [test_hb, "ХБ"],
     k10 : [test_k10, "К-10"],
+    r1 : [test_r1, "Р-1"],
     k11 : [test_k11, "К-11"],
-    
-    
+    k12 : [test_k12, "К-12, К-13"],
+    k14 : [test_k14, "К-14"],
+    k16 : [test_k16, "К-16"],
+    k17 : [test_k17, "К-17"],
+    k19 : [test_k19, "К-19"],
+    k27 : [test_k27, "К-27"],
+    k6 : [test_k6, "К-6, К-18"],
+    k9 : [test_k9, "К-9"],
+    tg : [test_tg, "Конд. и ТГ"],
+    ph : [test_ph, "ПХЦ"],
+    eh : [test_eh, "ЭХЦ"],
+    fakel : [test_fakel, "Факелы"],  
    
   }
-
-  
-
-  //alert(defaultTest)
+ 
 
   if(defaultTest === 'test6') {      
     return test6;    
@@ -280,11 +273,14 @@ function showHideMenu() {
 
     ddMenu.style.display = "none";
 
-    saveSettings();      
+    saveSettings();    
+    
+     
 
     removeButtons();
 
     const testList = getTestList();
+
 
 
 
@@ -313,11 +309,14 @@ function showHelpPage() {
 
 function loadSettings(){
 
+  alert(defaultTest)
+
   if(!localStorage.getItem('settings')) 
   {
-    defaultTest = 'test6'
+    defaultTest = 'test6';
     
-    return
+    return;
+
   }else{
 
     lev6Toggle.checked = false;
@@ -328,11 +327,13 @@ function loadSettings(){
 
   }
 
+  alert(defaultTest)
+
 }
 
 function apply(togglesState){    
 
-  // lev6Toggle.checked = false;
+ 
 
   themeToggle.checked = togglesState.isDarkTheme; 
   
@@ -342,27 +343,23 @@ function apply(togglesState){
 
   defaultTest = togglesState.defaultTest;
 
-  //alert(defaultTest)
+ 
 
+  
   if(defaultTest === 'test6') {
 
     lev6Toggle.checked = true;
-
-    //defaultTest = 'test6';
+    
 
   }
   if(defaultTest === 'test5'){
 
-    lev5Toggle.checked = true;
-
-    //defaultTest = 'test5';
+    lev5Toggle.checked = true;    
 
   } 
   if(defaultTest === 'base26'){
 
-    base2026Toggle.checked = true;
-
-    //defaultTest = 'base26';
+    base2026Toggle.checked = true;    
 
   } 
 

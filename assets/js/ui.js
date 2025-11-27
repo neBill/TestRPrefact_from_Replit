@@ -576,19 +576,21 @@ document.addEventListener("click", function(event) {
 
 function removeTestHistory(testId) {      
 
-  localStorage.removeItem(testId);
+  localStorage.removeItem(testId);  
+
+  defaultTest = "";
 
 }
 
 function getTestHistory(testId) {
 
-  return localStorage.getItem(testId)
+  return localStorage.getItem(testId);
 
 }
 
 function setTestHistory(testId) {
 
-  localStorage.setItem(testId)
+  localStorage.setItem(testId);
 
 }
 
