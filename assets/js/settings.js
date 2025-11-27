@@ -68,14 +68,9 @@ function clearCurrentHistory() {
 
 
 window.addEventListener("load", ()=>{  
-  document.body.className = 'light-theme';  
+  document.body.className = 'light-theme';   
 
- 
-
-  loadSettings();  
-
-   
-
+  loadSettings();   
 
   const testList = getTestList(); 
   
@@ -309,7 +304,7 @@ function showHelpPage() {
 
 function loadSettings(){
 
-  alert(defaultTest)
+ 
 
   if(!localStorage.getItem('settings')) 
   {
@@ -327,7 +322,7 @@ function loadSettings(){
 
   }
 
-  alert(defaultTest)
+  
 
 }
 
