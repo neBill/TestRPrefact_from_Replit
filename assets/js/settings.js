@@ -5,7 +5,7 @@ const shuffleToggle = document.getElementById('shuffle');
 const learnmodeToggle = document.getElementById('learn_mode');
 const helpBlock = document.getElementById("help_block");
 const buttonsBlock = document.getElementById('levels');
-const base26Toggle = document.getElementById('base26');
+const base2026Toggle = document.getElementById('base2026');
 
 
 
@@ -144,7 +144,7 @@ lev6Toggle.addEventListener('change', function() {
   
 });
 
-base26Toggle.addEventListener('change', function() {
+base2026Toggle.addEventListener('change', function() {
 
   let toggleState = base26Toggle.checked;
 
@@ -207,6 +207,9 @@ function getTestList() {
        
     
     hb : [test_hb, "ХБ"],
+    k10 : [test_k10, "К-10"],
+    k11 : [test_k11, "К-11"],
+    
     
    
   }
@@ -357,7 +360,7 @@ function apply(togglesState){
   } 
   if(defaultTest === 'base26'){
 
-    base26Toggle.checked = true;
+    base2026Toggle.checked = true;
 
     //defaultTest = 'base26';
 
