@@ -5,7 +5,8 @@ const shuffleToggle = document.getElementById('shuffle');
 const learnmodeToggle = document.getElementById('learn_mode');
 const helpBlock = document.getElementById("help_block");
 const buttonsBlock = document.getElementById('levels');
-const base2026Toggle = document.getElementById('base2026');
+const stg2026Toggle = document.getElementById('stg2026');
+const ntg2026Toggle = document.getElementById('ntg2026');
 
 
 
@@ -96,7 +97,8 @@ lev5Toggle.addEventListener('change', function() {
   if(toggleState === true){
 
     lev6Toggle.checked = false;
-    base2026Toggle.checked = false;
+    stg2026Toggle.checked = false;
+    ntg2026Toggle.checked = false;
     
 
     defaultTest = 'test5';
@@ -119,7 +121,8 @@ lev6Toggle.addEventListener('change', function() {
   if(toggleState === true){
 
     lev5Toggle.checked = false;
-    base2026Toggle.checked = false;
+    stg2026Toggle.checked = false;
+    ntg2026Toggle.checked = false;
 
     defaultTest = 'test6';
 
@@ -132,20 +135,43 @@ lev6Toggle.addEventListener('change', function() {
   
 });
 
-base2026Toggle.addEventListener('change', function() {
+stg2026Toggle.addEventListener('change', function() {
 
-  let toggleState = base2026Toggle.checked;
+  let toggleState = stg2026Toggle.checked;
 
   if(toggleState === true){
 
     lev5Toggle.checked = false;
     lev6Toggle.checked = false;
+    ntg2026Toggle.checked = false;
+    
 
-    defaultTest = 'base26';
+    defaultTest = 'stg26';
 
   }else{
 
-    base2026Toggle.checked = true;
+    stg2026Toggle.checked = true;
+
+  }
+
+  
+});
+
+ntg2026Toggle.addEventListener('change', function() {
+
+  let toggleState = ntg2026Toggle.checked;
+
+  if(toggleState === true){
+
+    lev5Toggle.checked = false;
+    lev6Toggle.checked = false;
+    stg2026Toggle.checked = false;
+
+    defaultTest = 'ntg26';
+
+  }else{
+
+    ntg2026Toggle.checked = true;
 
   }
 
@@ -184,7 +210,17 @@ function getTestList() {
   }
 
 
-  const base26 = {       
+  const stg26 = {           
+    
+    k27 : [test_k27, "К-27"],
+    k6 : [test_k6, "К-6, К-18"],
+    k9 : [test_k9, "К-9"],
+    tg : [test_tg, "Конд. и ТГ"],    
+    fakel : [test_fakel, "Факелы"],  
+   
+  }
+
+   const ntg26 = {       
     
     hb : [test_hb, "ХБ"],
     k10 : [test_k10, "К-10"],
@@ -194,14 +230,9 @@ function getTestList() {
     k14 : [test_k14, "К-14"],
     k16 : [test_k16, "К-16"],
     k17 : [test_k17, "К-17"],
-    k19 : [test_k19, "К-19"],
-    k27 : [test_k27, "К-27"],
-    k6 : [test_k6, "К-6, К-18"],
-    k9 : [test_k9, "К-9"],
-    tg : [test_tg, "Конд. и ТГ"],
+    k19 : [test_k19, "К-19, К-20"],     
     ph : [test_ph, "ПХЦ"],
-    eh : [test_eh, "ЭХЦ"],
-    fakel : [test_fakel, "Факелы"],  
+    eh : [test_eh, "ЭХЦ"],     
    
   }
  
@@ -213,9 +244,13 @@ function getTestList() {
 
     return test5;
   }
-  if(defaultTest === 'base26'){ 
+  if(defaultTest === 'stg26'){ 
 
-    return base26;
+    return stg26;
+  }
+  if(defaultTest === 'ntg26'){ 
+
+    return ntg26;
   }
 
   
@@ -352,9 +387,14 @@ function apply(togglesState){
     lev5Toggle.checked = true;    
 
   } 
-  if(defaultTest === 'base26'){
+  if(defaultTest === 'stg26'){
 
-    base2026Toggle.checked = true;    
+    stg2026Toggle.checked = true;    
+
+  } 
+  if(defaultTest === 'ntg26'){
+
+    ntg2026Toggle.checked = true;    
 
   } 
 
