@@ -7,6 +7,7 @@ const helpBlock = document.getElementById("help_block");
 const buttonsBlock = document.getElementById('levels');
 const stg2026Toggle = document.getElementById('stg2026');
 const ntg2026Toggle = document.getElementById('ntg2026');
+let defaultTest;
 
 
 
@@ -72,6 +73,8 @@ window.addEventListener("load", ()=>{
   document.body.className = 'light-theme';   
 
   loadSettings();   
+
+  // alert(defaultTest)
 
   const testList = getTestList(); 
   
@@ -305,14 +308,10 @@ function showHideMenu() {
 
     saveSettings();    
     
-     
 
     removeButtons();
 
     const testList = getTestList();
-
-
-
 
     createTestButtons(testList);
   }
@@ -343,13 +342,13 @@ function loadSettings(){
 
   if(!localStorage.getItem('settings')) 
   {
-    defaultTest = 'test6';
+    defaultTest = 'ntg26';
+    ntg2026Toggle.checked = true;
     
     return;
 
   }else{
-
-    lev6Toggle.checked = false;
+    
 
     let togglesState = JSON.parse(localStorage.getItem('settings'));  
 
@@ -430,5 +429,15 @@ function saveSettings(){
   apply(togglesState);
 
   localStorage.setItem("settings", JSON.stringify(togglesState));
+}
+
+function removeTestHistory(testId) {      
+
+  localStorage.removeItem(testId);  
+
+  defaultTest = "";
+  
+  
+
 }
 

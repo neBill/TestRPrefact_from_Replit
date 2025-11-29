@@ -6,7 +6,7 @@ let historyIndex;
 let isHistorySave = true;
 let isShuffle = false;
 let isAnswerDone = false;
-let defaultTest;
+
 
 const btnHome = document.getElementById('button_home');
 const navBlock = document.getElementById('nav_block');
@@ -574,13 +574,11 @@ document.addEventListener("click", function(event) {
 })
 
 
-function removeTestHistory(testId) {      
+// function removeTestHistory(testId) {      
 
-  localStorage.removeItem(testId);  
+//   localStorage.removeItem(testId);   
 
-  defaultTest = "";
-
-}
+// }
 
 function getTestHistory(testId) {
 
