@@ -56,29 +56,13 @@ function clearCaches(){
   });
 }
 
-// function clearAllHistory() {
-
-//   localStorage.clear(); 
- 
-//   location.reload(true);
-  
-
-// }
-
-
-
-
 
 
 
 window.addEventListener("load", ()=>{  
-  document.body.className = 'light-theme';  
-  
-  
+  document.body.className = 'light-theme';    
 
-  loadSettings();   
-
-  
+  loadSettings();     
 
   const testList = getTestList(); 
   
@@ -453,7 +437,7 @@ function clearAllHistory() {
 
    defaultTest = ""; 
 
-   alert(defaultTest)
+  //  alert(defaultTest)
   
 
 }
