@@ -56,26 +56,29 @@ function clearCaches(){
   });
 }
 
-function clearAllHistory() {
+// function clearAllHistory() {
 
-  localStorage.clear(); 
+//   localStorage.clear(); 
+ 
+//   location.reload(true);
+  
 
-}
+// }
 
-function clearCurrentHistory() {
 
-  localStorage.removeItem(currentTest.id); 
 
-}
+
 
 
 
 window.addEventListener("load", ()=>{  
-  document.body.className = 'light-theme';   
+  document.body.className = 'light-theme';  
+  
+  
 
   loadSettings();   
 
-  // alert(defaultTest)
+  
 
   const testList = getTestList(); 
   
@@ -98,7 +101,7 @@ lev5Toggle.addEventListener('change', function() {
 
   let toggleState = lev5Toggle.checked;
 
-  if(toggleState === true){
+    if(toggleState === true){
 
     lev6Toggle.checked = false;
     stg2026Toggle.checked = false;
@@ -304,8 +307,8 @@ function showHideMenu() {
   if(display === "none")
   {
       ddMenu.style.display = "block";
-  }
-  else {
+
+  }  else {
 
     ddMenu.style.display = "none";
 
@@ -345,12 +348,17 @@ function loadSettings(){
 
   if(!localStorage.getItem('settings')) 
   {
+   
+    // alert("no histiry")
+    
     defaultTest = 'ntg26';
     ntg2026Toggle.checked = true;
     
     return;
 
   }else{
+
+    // alert("is histiry")
     
 
     let togglesState = JSON.parse(localStorage.getItem('settings'));  
@@ -419,7 +427,7 @@ function apply(togglesState){
 
 function saveSettings(){  
 
-  
+  //alert(defaultTest)
 
   const togglesState = {
   
@@ -432,14 +440,20 @@ function saveSettings(){
   apply(togglesState);
 
   localStorage.setItem("settings", JSON.stringify(togglesState));
+
 }
 
-function removeTestHistory(testId) {      
-
-  localStorage.removeItem(testId);  
-
-  defaultTest = "";
+function clearAllHistory() {     
   
+  
+
+   localStorage.clear(); 
+ 
+   location.reload(true);
+
+   defaultTest = ""; 
+
+   alert(defaultTest)
   
 
 }
