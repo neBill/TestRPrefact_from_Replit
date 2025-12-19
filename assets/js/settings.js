@@ -45,14 +45,15 @@ function chageFontSize(buttonId){
 
 
 
-function clearCaches(){  
-  // caches.open('s-app-v1').then(cache => {
-  //   cache.keys().then(keys => {
-  //     keys.forEach(request => {
-  //       cache.delete(request);
-  //     });
-  //   });
-  // });
+function clearCaches(){   
+
+  caches.open('s-app-v1').then(cache => {
+    cache.keys().then(keys => {
+      keys.forEach(request => {
+        cache.delete(request);
+      });
+    });
+  });
 }
 
 function clearAllHistory() {
