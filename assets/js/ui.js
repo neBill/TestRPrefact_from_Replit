@@ -594,6 +594,7 @@ function chooseTest(testId) {
     m6 : test_m6,
     m1 : test_m1,
     mco : test_mco,
+    mob : test_mob,
    
      
   }
