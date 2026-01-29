@@ -588,6 +588,13 @@ function chooseTest(testId) {
     ot_maxim : test_maxim,
     micro_5 : micro_5,
     micro_6 : micro_6,
+
+    m2 : test_m2,
+    m5 : test_m5,
+    m6 : test_m6,
+    m1 : test_m1,
+    mco : test_mco,
+   
      
   }
   return testList[testId];
