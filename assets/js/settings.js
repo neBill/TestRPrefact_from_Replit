@@ -209,6 +209,8 @@ function getTestList() {
     tg : [test_tg, "Конд. и ТГ"],    
     fakel : [test_fakel, "Факелы"],  
     gen : [test_ot26, "ОТ общие"],
+    mob : [test_mob, "Мобильные обходы"],
+    
    
   }
 
@@ -226,6 +228,7 @@ function getTestList() {
     ph : [test_ph, "ПХЦ"],
     eh : [test_eh, "ЭХЦ"], 
     gen : [test_ot26, "ОТ общие"],
+    mob : [test_mob, "Мобильные обходы"],
    
   }
  
