@@ -208,7 +208,7 @@ function getTestList() {
     k9 : [test_k9, "К-9"],
     tg : [test_tg, "Конд. и ТГ"],    
     fakel : [test_fakel, "Факелы"],  
-    gen : [test_ot26, "ОТ общие"],
+    gen : [test_ot26, "ОТ 2026"],
     mob : [test_mob, "Моб-е обходы"],
     
    
@@ -227,7 +227,7 @@ function getTestList() {
     k19 : [test_k19, "К-19, К-20"],     
     ph : [test_ph, "ПХЦ"],
     eh : [test_eh, "ЭХЦ"], 
-    gen : [test_ot26, "ОТ общие"],
+    gen : [test_ot26, "ОТ 2026"],
     mob : [test_mob, "Моб-е обходы"],
    
   }

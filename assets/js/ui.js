@@ -574,11 +574,11 @@ document.addEventListener("click", function(event) {
 })
 
 
-// function removeTestHistory(testId) {      
+function removeTestHistory(testId) {      
 
-//   localStorage.removeItem(testId);   
+  localStorage.removeItem(testId);   
 
-// }
+}
 
 function getTestHistory(testId) {
 
