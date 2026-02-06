@@ -588,6 +588,8 @@ function chooseTest(testId) {
     ot_maxim : test_maxim,
     micro_5 : micro_5,
     micro_6 : micro_6,
+    ot_2026 : test_ot26,
+    mob : test_mob,
      
   }
   return testList[testId];
