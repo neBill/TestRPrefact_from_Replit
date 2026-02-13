@@ -210,6 +210,7 @@ function getTestList() {
     fakel : [test_fakel, "Факелы"],  
     ot : [test_ot_25_26, "ОТ 25-26"],
     mob : [test_mob, "Моб-е обходы"],
+    gen_dop : [test_gen_dop, "Доп(6+)?"],
     
    
   }
@@ -229,6 +230,7 @@ function getTestList() {
     eh : [test_eh, "ЭХЦ"], 
     ot : [test_ot_25_26, "ОТ 25-26"],
     mob : [test_mob, "Моб-е обходы"],
+    gen_dop : [test_gen_dop, "Доп(6+)?"],
    
   }
  
