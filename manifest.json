@@ -1,6 +1,6 @@
 {
-    "name": "КиРП(без дублей)",
-    "short_name": "Тесты РП",
+    "name": "Тесты ЛОС",
+    "short_name": "ЛОС",
     "start_url": "index.html",
     "display": "standalone", 
     "background_color": "#025252",
