@@ -173,14 +173,15 @@ function getTestList() {
 
   const test_los = {
    
-    rou : [test_rou, "Конд. РОУ, др.сист."],
+    rou : [test_rou, "Конденсаты"],
     pc_clean : [test_pcclean, "ФХ очистка"],
     r_cool : [test_rcool, "Реаг-й. Охл-е"],
     ch_clean : [test_chclean, "Очистка от у/в"],
     ox : [test_ox, "Окисл-е сульф-в"],
     ozon : [test_ozon, "Озонирование"],
     p_catch : [test_pcatch, "Нефтеловушка"], 
-    mob : [test_mob, "Моб-е обходы"],        
+    mob : [test_mob, "Моб-е обходы"],   
+    ot : [test_ot, "Охрана труда"]     
 
   }   
 
