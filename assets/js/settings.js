@@ -1,12 +1,12 @@
-const lev5Toggle = document.getElementById('lev5');
-const lev6Toggle = document.getElementById('lev6');
+// const lev5Toggle = document.getElementById('lev5');
+// const lev6Toggle = document.getElementById('lev6');
 const themeToggle =  document.getElementById('theme'); 
 const shuffleToggle = document.getElementById('shuffle');
 const learnmodeToggle = document.getElementById('learn_mode');
 const helpBlock = document.getElementById("help_block");
 const buttonsBlock = document.getElementById('levels');
-const stg2026Toggle = document.getElementById('stg2026');
-const ntg2026Toggle = document.getElementById('ntg2026');
+// const stg2026Toggle = document.getElementById('stg2026');
+// const ntg2026Toggle = document.getElementById('ntg2026');
 let defaultTest;
 
 
@@ -81,175 +81,178 @@ window.addEventListener('load', function() {
 
 
 
-lev5Toggle.addEventListener('change', function() {
+// lev5Toggle.addEventListener('change', function() {
 
-  let toggleState = lev5Toggle.checked;
+//   let toggleState = lev5Toggle.checked;
 
-    if(toggleState === true){
+//     if(toggleState === true){
 
-    lev6Toggle.checked = false;
-    stg2026Toggle.checked = false;
-    ntg2026Toggle.checked = false;
+//     lev6Toggle.checked = false;
+//     stg2026Toggle.checked = false;
+//     ntg2026Toggle.checked = false;
     
 
-    defaultTest = 'test5';
+//     defaultTest = 'test5';
 
-  }
+//   }
   
-  else{
+//   else{
 
-    lev5Toggle.checked = true;
+//     lev5Toggle.checked = true;
    
-  }
+//   }
 
   
-});
+// });
 
-lev6Toggle.addEventListener('change', function() {
+// lev6Toggle.addEventListener('change', function() {
 
-  let toggleState = lev6Toggle.checked;
+//   let toggleState = lev6Toggle.checked;
 
-  if(toggleState === true){
+//   if(toggleState === true){
 
-    lev5Toggle.checked = false;
-    stg2026Toggle.checked = false;
-    ntg2026Toggle.checked = false;
+//     lev5Toggle.checked = false;
+//     stg2026Toggle.checked = false;
+//     ntg2026Toggle.checked = false;
 
-    defaultTest = 'test6';
+//     defaultTest = 'test6';
 
-  }else{
+//   }else{
 
-    lev6Toggle.checked = true;
+//     lev6Toggle.checked = true;
   
-  }
+//   }
 
   
-});
+// });
 
-stg2026Toggle.addEventListener('change', function() {
+// stg2026Toggle.addEventListener('change', function() {
 
-  let toggleState = stg2026Toggle.checked;
+//   let toggleState = stg2026Toggle.checked;
 
-  if(toggleState === true){
+//   if(toggleState === true){
 
-    lev5Toggle.checked = false;
-    lev6Toggle.checked = false;
-    ntg2026Toggle.checked = false;
+//     lev5Toggle.checked = false;
+//     lev6Toggle.checked = false;
+//     ntg2026Toggle.checked = false;
     
 
-    defaultTest = 'stg26';
+//     defaultTest = 'stg26';
 
-  }else{
+//   }else{
 
-    stg2026Toggle.checked = true;
+//     stg2026Toggle.checked = true;
 
-  }
-
-  
-});
-
-ntg2026Toggle.addEventListener('change', function() {
-
-  let toggleState = ntg2026Toggle.checked;
-
-  if(toggleState === true){
-
-    lev5Toggle.checked = false;
-    lev6Toggle.checked = false;
-    stg2026Toggle.checked = false;
-
-    defaultTest = 'ntg26';
-
-  }else{
-
-    ntg2026Toggle.checked = true;
-
-  }
+//   }
 
   
-});
+// });
+
+// ntg2026Toggle.addEventListener('change', function() {
+
+//   let toggleState = ntg2026Toggle.checked;
+
+//   if(toggleState === true){
+
+//     lev5Toggle.checked = false;
+//     lev6Toggle.checked = false;
+//     stg2026Toggle.checked = false;
+
+//     defaultTest = 'ntg26';
+
+//   }else{
+
+//     ntg2026Toggle.checked = true;
+
+//   }
+
+  
+// });
 
 function getTestList() {  
 
-  const test5 = {
+  const test_los = {
    
-    st5_1 : [test_5s_block_1, "5p Стандарт 1"],
-    st5_2 : [test_5s_block_2, "5p Стандарт 2"],
-    ex5 : [test_5ex, "5р эксперт"],
-    ot_1 : [test_ot_block_1, "Охрана труда 1"],
-    ot_2 : [test_ot_block_2, "Охрана труда 2"],
-    ot5_2025 : [test_otrp, "ОT 2025"],
-    econs : [econs, "ЭКОНС"],        
+    rou : [test_rou, "Конд. РОУ, др.сист."],
+    pc_clean : [test_pcclean, "ФХ очистка"],
+    r_cool : [test_rcool, "Реаг-й. Охл-е"],
+    ch_clean : [test_chclean, "Очистка от у/в"],
+    ox : [test_ox, "Окисл-е сульф-в"],
+    ozon : [test_ozon, "Озонирование"],
+    p_catch : [test_pcatch, "Нефтеловушка"], 
+    mob : [test_mob, "Моб-е обходы"],        
 
   }   
+
+  return test_los;
   
   
-  const test6 = {
+  // const test6 = {
        
-    st6_1 : [test_6s_block_1, "6p Стандарт 1"],
-    st6_2 : [test_6s_block_2, "6p Стандарт 2"],
-    st6_3 : [test_6s_block_3, "6p Стандарт 3"],
-    st6_4 : [test_6s_block_4, "6p Стандарт 4"],
-    ex6 : [test_6e_block_1, "6р Эксперт"],
-    ot_1 : [test_ot_block_1, "Охрана труда 1"],
-    ot_2 : [test_ot_block_2, "Охрана труда 2"],
-    ot6_2025 : [test_otrp, "ОT 2025"],
-    ot6com_2025 : [test_otcom, "ОT 2025 ком"],
-    econs : [econs, "ЭКОНС"],
-    ex6_plus : [test_6e_plus, "Старшие эксперт"],
+  //   st6_1 : [test_6s_block_1, "6p Стандарт 1"],
+  //   st6_2 : [test_6s_block_2, "6p Стандарт 2"],
+  //   st6_3 : [test_6s_block_3, "6p Стандарт 3"],
+  //   st6_4 : [test_6s_block_4, "6p Стандарт 4"],
+  //   ex6 : [test_6e_block_1, "6р Эксперт"],
+  //   ot_1 : [test_ot_block_1, "Охрана труда 1"],
+  //   ot_2 : [test_ot_block_2, "Охрана труда 2"],
+  //   ot6_2025 : [test_otrp, "ОT 2025"],
+  //   ot6com_2025 : [test_otcom, "ОT 2025 ком"],
+  //   econs : [econs, "ЭКОНС"],
+  //   ex6_plus : [test_6e_plus, "Старшие эксперт"],
    
-  }
+  // }
 
 
-  const stg26 = {           
+  // const stg26 = {           
     
-    k27 : [test_k27, "К-27"],
-    k6 : [test_k6, "К-6, К-18"],
-    k9 : [test_k9, "К-9"],
-    tg : [test_tg, "Конд. и ТГ"],    
-    fakel : [test_fakel, "Факелы"],  
-    ot : [test_ot_25_26, "ОТ 25-26"],
-    mob : [test_mob, "Моб-е обходы"],
-    gen_dop : [test_gen_dop, "Доп(6+)?"],
+  //   k27 : [test_k27, "К-27"],
+  //   k6 : [test_k6, "К-6, К-18"],
+  //   k9 : [test_k9, "К-9"],
+  //   tg : [test_tg, "Конд. и ТГ"],    
+  //   fakel : [test_fakel, "Факелы"],  
+  //   ot : [test_ot_25_26, "ОТ 25-26"],
+  //   mob : [test_mob, "Моб-е обходы"],
+  //   gen_dop : [test_gen_dop, "Доп(6+)?"],
     
    
-  }
+  // }
 
-   const ntg26 = {       
+  //  const ntg26 = {       
     
-    hb : [test_hb, "ХБ"],
-    k10 : [test_k10, "К-10"],
-    r1 : [test_r1, "Р-1"],
-    k11 : [test_k11, "К-11"],
-    k12 : [test_k12, "К-12, К-13"],
-    k14 : [test_k14, "К-14"],
-    k16 : [test_k16, "К-16"],
-    k17 : [test_k17, "К-17"],
-    k19 : [test_k19, "К-19, К-20"],     
-    ph : [test_ph, "ПХЦ"],
-    eh : [test_eh, "ЭХЦ"], 
-    ot : [test_ot_25_26, "ОТ 25-26"],
-    mob : [test_mob, "Моб-е обходы"],
-    gen_dop : [test_gen_dop, "Доп(6+)?"],
+  //   hb : [test_hb, "ХБ"],
+  //   k10 : [test_k10, "К-10"],
+  //   r1 : [test_r1, "Р-1"],
+  //   k11 : [test_k11, "К-11"],
+  //   k12 : [test_k12, "К-12, К-13"],
+  //   k14 : [test_k14, "К-14"],
+  //   k16 : [test_k16, "К-16"],
+  //   k17 : [test_k17, "К-17"],
+  //   k19 : [test_k19, "К-19, К-20"],     
+  //   ph : [test_ph, "ПХЦ"],
+  //   eh : [test_eh, "ЭХЦ"], 
+  //   ot : [test_ot_25_26, "ОТ 25-26"],
+  //   mob : [test_mob, "Моб-е обходы"],
+  //   gen_dop : [test_gen_dop, "Доп(6+)?"],
    
-  }
+  // }
  
 
-  if(defaultTest === 'test6') {      
-    return test6;    
-  }
-  if(defaultTest === 'test5'){ 
+  // if(defaultTest === 'test6') {      
+  //   return test6;    
+  // }
+  // if(defaultTest === 'test5'){ 
 
-    return test5;
-  }
-  if(defaultTest === 'stg26'){ 
+  //   return test5;
+  // }
+  // if(defaultTest === 'stg26'){ 
 
-    return stg26;
-  }
-  if(defaultTest === 'ntg26'){ 
+  //   return stg26;
+  // }
+  // if(defaultTest === 'ntg26'){ 
 
-    return ntg26;
-  }
+  //   return ntg26;
+  // }
 
   
 
@@ -340,8 +343,8 @@ function loadSettings(){
    
     // alert("no histiry")
     
-    defaultTest = 'ntg26';
-    ntg2026Toggle.checked = true;
+    // defaultTest = 'ntg26';
+    // ntg2026Toggle.checked = true;
     
     return;
 
@@ -370,32 +373,32 @@ function apply(togglesState){
 
   learnmodeToggle.checked = togglesState.isLearn;
 
-  defaultTest = togglesState.defaultTest;
+  //  defaultTest = togglesState.defaultTest;
 
  
 
   
-  if(defaultTest === 'test6') {
+  // if(defaultTest === 'test6') {
 
-    lev6Toggle.checked = true;
+  //   lev6Toggle.checked = true;
     
 
-  }
-  if(defaultTest === 'test5'){
+  // }
+  // if(defaultTest === 'test5'){
 
-    lev5Toggle.checked = true;    
+  //   lev5Toggle.checked = true;    
 
-  } 
-  if(defaultTest === 'stg26'){
+  // } 
+  // if(defaultTest === 'stg26'){
 
-    stg2026Toggle.checked = true;    
+  //   stg2026Toggle.checked = true;    
 
-  } 
-  if(defaultTest === 'ntg26'){
+  // } 
+  // if(defaultTest === 'ntg26'){
 
-    ntg2026Toggle.checked = true;    
+  //   ntg2026Toggle.checked = true;    
 
-  } 
+  // } 
 
   isLearnMode = togglesState.isLearn;
 
@@ -423,7 +426,7 @@ function saveSettings(){
     isLearn : learnmodeToggle.checked,
     isShuffle : shuffleToggle.checked,
     isDarkTheme : themeToggle.checked,
-    defaultTest : defaultTest,
+    // defaultTest : defaultTest,
   }
 
   apply(togglesState);
@@ -440,7 +443,7 @@ function clearAllHistory() {
  
    location.reload(true);
 
-   defaultTest = ""; 
+  //  defaultTest = ""; 
 
   //  alert(defaultTest)
   
