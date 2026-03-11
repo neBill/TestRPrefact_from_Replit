@@ -166,8 +166,13 @@ p{
     padding: 0 10px;
 }
  */
-.body-content{
-  flex: 1 0 auto;  
+.body-cotent{
+  /* flex: 1 0 auto;   */
+
+  width: 1000px; /* Фиксированная ширина */
+  max-width: 100%; /* Не шире экрана на мобильных */
+  margin: 0 auto; /* Центрирование */
+  box-sizing: border-box; /* Учёт padding и border в ширине */
 }
 
 /*.results-block, .levels-block{  
