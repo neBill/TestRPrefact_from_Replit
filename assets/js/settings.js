@@ -203,34 +203,36 @@ function getTestList() {
 
   const stg26 = {           
     
-    k27 : [test_k27, "К-27"],
-    k6 : [test_k6, "К-6, К-18"],
-    k9 : [test_k9, "К-9"],
-    tg : [test_tg, "Конд. и ТГ"],    
-    fakel : [test_fakel, "Факелы"],  
-    ot : [test_ot_25_26, "ОТ 25-26"],
-    mob : [test_mob, "Моб-е обходы"],
-    gen_dop : [test_gen_dop, "Доп(6+)?"],
+    // k27 : [test_k27, "К-27"],
+    // k6 : [test_k6, "К-6, К-18"],
+    // k9 : [test_k9, "К-9"],
+    // tg : [test_tg, "Конд. и ТГ"],    
+    // fakel : [test_fakel, "Факелы"],  
+    // ot : [test_ot_25_26, "ОТ 25-26"],
+    // mob : [test_mob, "Моб-е обходы"],
+    // gen_dop : [test_gen_dop, "Доп(6+)?"],
+    stp : [test_stp, "Для аудита"],
     
    
   }
 
    const ntg26 = {       
     
-    hb : [test_hb, "ХБ"],
-    k10 : [test_k10, "К-10"],
-    r1 : [test_r1, "Р-1"],
-    k11 : [test_k11, "К-11"],
-    k12 : [test_k12, "К-12, К-13"],
-    k14 : [test_k14, "К-14"],
-    k16 : [test_k16, "К-16"],
-    k17 : [test_k17, "К-17"],
-    k19 : [test_k19, "К-19, К-20"],     
-    ph : [test_ph, "ПХЦ"],
-    eh : [test_eh, "ЭХЦ"], 
-    ot : [test_ot_25_26, "ОТ 25-26"],
-    mob : [test_mob, "Моб-е обходы"],
-    gen_dop : [test_gen_dop, "Доп(6+)?"],
+   // hb : [test_hb, "ХБ"],
+    // k10 : [test_k10, "К-10"],
+    // r1 : [test_r1, "Р-1"],
+    // k11 : [test_k11, "К-11"],
+    // k12 : [test_k12, "К-12, К-13"],
+    // k14 : [test_k14, "К-14"],
+    // k16 : [test_k16, "К-16"],
+    // k17 : [test_k17, "К-17"],
+    // k19 : [test_k19, "К-19, К-20"],     
+    // ph : [test_ph, "ПХЦ"],
+    // eh : [test_eh, "ЭХЦ"], 
+    // ot : [test_ot_25_26, "ОТ 25-26"],
+    // mob : [test_mob, "Моб-е обходы"],
+    // gen_dop : [test_gen_dop, "Доп(6+)?"],
+    stp : [test_stp, "Для аудита"],
    
   }
  
